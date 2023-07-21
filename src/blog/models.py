@@ -15,6 +15,9 @@ class Recipe():
     # banner = models.ImageField(upload_to='banners/', null=True, blank=True)
     # pictures = models.ImageField(upload_to='pictures/', null=True, blank=True)
 
+    class Meta:
+        ordering = ('-updated_at', '-created_at',)
+
     def __str__(self):
         return f"{self.title}"
 
@@ -32,3 +35,6 @@ class Message():
     sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('created_at',)
