@@ -13,3 +13,6 @@ class CustomUser(AbstractUser):
     bio = models.TextField(null=True, blank=True)
     recipes = models.ManyToManyField(Recipe, related_name='recipes')
     favorites = models.ManyToManyField(Recipe, related_name='favorites')
+
+    def __str__(self):
+        return f"{self.username}"

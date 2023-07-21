@@ -15,6 +15,9 @@ class Recipe():
     # banner = models.ImageField(upload_to='banners/', null=True, blank=True)
     # pictures = models.ImageField(upload_to='pictures/', null=True, blank=True)
 
+    def __str__(self):
+        return f"{self.title}"
+
 
 class Conversation():
     participant1 = models.ForeignKey(
