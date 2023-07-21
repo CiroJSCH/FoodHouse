@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
-    "landing.apps.LandingConfig"
+    "landing.apps.LandingConfig",
+    "blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = "landing.CustomUser"
 
 WSGI_APPLICATION = "foodhouse.wsgi.application"
 
