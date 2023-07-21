@@ -12,6 +12,8 @@ class CustomUser(AbstractUser):
     bio = models.TextField(null=True, blank=True)
     recipes = models.ManyToManyField(Recipe, related_name='recipes')
     favorites = models.ManyToManyField(Recipe, related_name='favorites')
+    liked_recipes = models.ManyToManyField(
+        Recipe, related_name='liked_recipes')
 
     USERNAME_FIELD = 'email'
 
