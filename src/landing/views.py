@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from .forms import UserRegisterForm, UserLoginForm
 from .models import CustomUser
 
@@ -10,24 +10,25 @@ def landing(request):
     return render(request, "landing/landing.html")
 
 
-def login(request):
+def login_view(request):
     if request.method == "POST":
         form = UserLoginForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
 
-            user = CustomUser.objects.get(email=email)
-
-            if user.check_password(password):
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
                 login(request, user)
                 return redirect("blog:home")
-            else:
-                form.add_error('password', "Incorrect password")
+        else:
+            request.session["valid_email"] = form.cleaned_data.get("email")
     else:
-        form = UserLoginForm()
+        valid_email = request.session.get("valid_email") or ""
+        form = UserLoginForm(initial={"email": valid_email})
 
-    return render(request, "landing/login.html", {"form": form})
+    context = {"form": form}
+    return render(request, "landing/login.html", context)
 
 
 def register(request):

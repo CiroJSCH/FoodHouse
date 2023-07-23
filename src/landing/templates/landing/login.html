@@ -46,7 +46,13 @@
                      class="text-gray-400 font-medium text-[18px] xl:text-[20px] xxl:text-[22px] hidden lg:block">
                 Email Address
               </label>
-              <input type="text" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" class="{{ form.email.field.widget.attrs.class }}" placeholder="Email" style={{ form.email.field.widget.attrs.style }}>
+              <input type="text"
+                     name="{{ form.email.name }}"
+                     id="{{ form.email.id_for_label }}"
+                     class="{{ form.email.field.widget.attrs.class }}"
+                     placeholder="Email"
+                     value="{{ form.email.value }}"
+                     style="{{ form.email.field.widget.attrs.style }}">
               <span class="mt-1 text-rose-600 font-medium w-full block h-[20px] lg:text-[18px]">{{ form.email.errors }}</span>
             </div>
             <div class="mt-4 flex flex-col">
