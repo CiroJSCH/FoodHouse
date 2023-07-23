@@ -26,39 +26,37 @@
           <h3 class="mt-1 font-medium text-[18px] lg:text-[20px] xl:text-[22px] xxl:text-[24px] font-text text-white lg:text-text text-center">
             Taste a world of recipes. Register today!
           </h3>
-          <form action=""
-                class="mt-10 flex flex-col gap-7 lg:gap-8 xl:gap-9 xxl:gap-10">
-            <div class="flex items-center border-b-2 rounded-md border-b-accent">
-              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-envelope fa-xl"></i></span>
-              <input type="email"
-                     name="email"
-                     id="email"
-                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600 placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
-                     placeholder="Email">
+          <form method="post"
+                class="mt-10 flex flex-col gap-4 lg:gap-5 xl:gap-6 xxl:gap-7"
+                id="register-form">
+            {% csrf_token %}
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center border-b-2 rounded-md border-b-accent w-full">
+                <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-envelope fa-xl"></i></span>
+                <input type="text" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" class="{{ form.email.field.widget.attrs.class }}" placeholder="Email" style={{ form.email.field.widget.attrs.style }} value="{{ form.email.value }}">
+              </div>
+              <span class="text-rose-600 font-medium min-h-[16px]">{{ form.email.errors }}</span>
             </div>
-            <div class="flex items-center border-b-2 rounded-md border-b-accent">
-              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-user fa-xl"></i></span>
-              <input type="text"
-                     name="username"
-                     id="username"
-                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
-                     placeholder="Username">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center border-b-2 rounded-md border-b-accent w-full">
+                <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-user fa-xl"></i></span>
+                <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" class="{{ form.username.field.widget.attrs.class }}" placeholder="Username" style={{ form.username.field.widget.attrs.style }} value="{{ form.username.value }}">
+              </div>
+              <span class="text-rose-600 font-medium min-h-[16px]">{{ form.username.errors }}</span>
             </div>
-            <div class="flex items-center border-b-2 rounded-md border-b-accent">
-              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-key fa-xl"></i></span>
-              <input type="password"
-                     name="password"
-                     id="password"
-                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
-                     placeholder="Password">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center border-b-2 rounded-md border-b-accent w-full">
+                <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-key fa-xl"></i></span>
+                <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}" class="{{ form.password1.field.widget.attrs.class }}" placeholder="Password" style={{ form.password1.field.widget.attrs.style }}>
+              </div>
+              <span class="text-rose-600 font-medium min-h-[16px]">{{ form.password1.errors }}</span>
             </div>
-            <div class="flex items-center border-b-2 rounded-md border-b-accent">
-              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-key fa-xl"></i></span>
-              <input type="password"
-                     name="password2"
-                     id="password2"
-                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
-                     placeholder="Confirm password">
+            <div class="flex flex-col gap-2">
+              <div class="flex items-center border-b-2 rounded-md border-b-accent w-full">
+                <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-key fa-xl"></i></span>
+                <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}" class="{{ form.password2.field.widget.attrs.class }}" placeholder="Confirm Password" style={{ form.password2.field.widget.attrs.style }}>
+              </div>
+              <span class="text-rose-600 font-medium min-h-[16px]">{{ form.password2.errors }}</span>
             </div>
             <button type="submit"
                     class="mt-10 w-full bg-secondary text-white font-title font-semibold py-3 rounded-md text-[18px] lg:text-[20px] xl:text-[24px]">
