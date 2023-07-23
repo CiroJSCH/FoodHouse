@@ -1,0 +1,124 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+  <main class="h-screen">
+    {% comment %} Desktop {% endcomment %}
+    <div class="h-full min-h-[800px] hidden lg:flex items-center">
+      <section class="w-[40%] h-full flex justify-center items-center">
+        <div class="h-full w-[90%] max-w-[600px] flex flex-col justify-center relative">
+          <a href="{{ request.META.HTTP_REFERER }}"
+             class="mb-[40px] flex items-center gap-3">
+            <i class="fa-solid fa-arrow-left fa-xl text-black"></i>
+            <span class="font-medium font-title text-[18px]">Go back</span>
+          </a>
+          {% comment %} Logo {% endcomment %}
+          <div class="flex items-center gap-1 mb-8 justify-center">
+            <img src="{% static 'images/foodhouse-logo.png' %}"
+                 alt="foodhouse logo"
+                 class="w-[50px] xl:w-[60px] xxl:w-[65px]">
+            <h1 class="text-[30px] xl:text-[36px] xxl:text-[42px] font-logo text-text font-medium pt-1">
+              Food <span>House</span>
+            </h1>
+          </div>
+          <h2 class="font-title font-semibold text-[27px] xl:text-[32px] xxl:text-[36px]">Welcome back!</h2>
+          <p class="text-gray-400 text-[18px] mt-3 xl:text-[22px] xxl:text-[24px]">
+            Sign in with your email address and password
+          </p>
+          <form action="" class="w-full mt-[60px] mb-[15px]">
+            <div>
+              <label for="email-dk"
+                     class="text-gray-400 font-medium text-[18px] xl:text-[20px] xxl:text-[22px]">Email Address</label>
+              <input type="email"
+                     name="email"
+                     id="email-dk"
+                     class="mt-2 focus:outline-none focus:border-accent border-2 border-transparent p-2 w-full rounded-md bg-gray-100 transition-colors xl:p-3 xl:text-[19px]"
+                     placeholder="johndoe@something.com">
+            </div>
+            <div class="mt-4 flex flex-col">
+              <label for="password-dk"
+                     class="mb-2 text-gray-400 font-medium text-[18px] xl:text-[20px] xxl:text-[22px]">Password</label>
+              <div class="flex items-center">
+                <input type="password"
+                       name="password"
+                       id="password-dk"
+                       placeholder="password123"
+                       class="focus:outline-none focus:border-accent border-2 border-transparent p-2 w-full rounded-l-md bg-gray-100 transition-colors xl:p-3 xl:text-[19px]">
+                <span class="bg-secondary text-accent w-[50px] h-[44px] xl:h-[56.5px] rounded-r-md grid place-content-center">
+                  <i class="fa-regular fa-eye fa-lg"></i>
+                </span>
+              </div>
+            </div>
+            <a href="#"
+               class="text-right font-text text-primary mt-3 block xl:text-[18px]">Forgot your password?</a>
+            <button type="submit"
+                    class="mt-10 rounded-md bg-secondary text-white font-medium font-title text-xl xl:text-2xl w-[230px] p-2">
+              Login
+            </button>
+          </form>
+          <p class="mt-10 pb-2 font-text text-gray-500 xl:text-[18px]">
+            Dont't have an account? <a href="#" class="text-accent font-medium font-title">Sign up</a>
+          </p>
+        </div>
+      </section>
+      <section class="w-[60%] h-full">
+        <div class="h-full w-full bg-center bg-no-repeat bg-cover"
+             style="background-image: url({% static 'images/landing/login-desktop.jpg' %})"></div>
+      </section>
+    </div>
+    {% comment %} Mobile {% endcomment %}
+    <section class="h-screen relative min-h-[500px] lg:hidden">
+      {% comment %} Banner {% endcomment %}
+      <div class="h-[40%] relative">
+        <div class="h-full bg-center bg-no-repeat bg-cover"
+             style="background-image: url({% static 'images/landing/login-mobile.jpg' %})"></div>
+        <div class="h-full w-full bg-[rgba(0,0,0,0.60)] absolute top-0 z-[2]"></div>
+        <a href="{{ request.META.HTTP_REFERER }}"
+           class="absolute top-3 left-3 z-[3]">
+          <i class="fa-solid fa-arrow-left fa-xl text-white"></i>
+        </a>
+      </div>
+      <div class="px-3 pt-10 rounded-t-2xl absolute w-full top-[38%] h-[62%] bg-white z-[5]">
+        <div class="max-w-[600px] mx-auto">
+          {% comment %} Logo {% endcomment %}
+          <div class="flex items-center gap-1 mb-8 justify-center">
+            <img src="{% static 'images/foodhouse-logo.png' %}"
+                 alt="foodhouse logo"
+                 height="30px"
+                 width="50px">
+            <h1 class="text-[30px] font-logo text-text font-medium pt-1">
+              Food <span>House</span>
+            </h1>
+          </div>
+          <h2 class="font-title text-text font-medium text-[22px]">Login to your account</h2>
+          <form action="" class="w-full mt-[40px] mb-[15px]">
+            <div>
+              <input type="email"
+                     name="email"
+                     id="email"
+                     class="focus:outline-none focus:border-accent border-2 border-transparent p-2 w-full rounded-md bg-gray-100 transition-colors"
+                     placeholder="Email">
+            </div>
+            <div class="mt-4 flex items-center">
+              <input type="password"
+                     name="password"
+                     id="password"
+                     placeholder="Password"
+                     class="focus:outline-none focus:border-accent border-2 border-transparent p-2 w-full rounded-l-md bg-gray-100 transition-colors">
+              <span class="bg-secondary text-accent w-[50px] h-[44px] rounded-r-md grid place-content-center">
+                <i class="fa-regular fa-eye fa-lg"></i>
+              </span>
+            </div>
+            <a href="#" class="text-right font-text text-primary mt-3 block">Forgot your password?</a>
+            <button type="submit"
+                    class="mt-7 rounded-md bg-secondary text-white font-medium font-title text-xl w-full p-2">
+              Login
+            </button>
+          </form>
+          <p class="text-center mt-10 pb-10 font-text text-gray-500 ">
+            Dont't have an account? <a href="#" class="text-accent font-medium font-title">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock content %}
