@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     "landing.apps.LandingConfig",
     "blog.apps.BlogConfig",
+
+    "fontawesomefree",
 ]
 
 MIDDLEWARE = [
