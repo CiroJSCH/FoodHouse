@@ -1,0 +1,75 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+  <main class="min-h-screen w-screen relative h-auto">
+    {% comment %} Banner mobile {% endcomment %}
+    <div class="w-full h-full min-h-[600px] lg:hidden bg-center bg-cover bg-no-repeat absolute bottom-0"
+         style="background-image: url({% static 'images/landing/register-mobile.jpg' %})"></div>
+    {% comment %} Banner desktop {% endcomment %}
+    <div class="w-full h-full hidden lg:block bg-center bg-cover bg-no-repeat absolute bottom-0"
+         style="background-image: url({% static 'images/landing/register-desktop.jpg' %})"></div>
+    {% comment %} Dark Layer {% endcomment %}
+    <div class="w-full h-full absolute lg:hidden top-0 z-[2] bg-[rgba(0,0,0,0.75)]"></div>
+    <section class="z-[3] px-3 py-5 relative h-auto min-h-screen grid place-content-center">
+      <div class="h-full flex flex-col justify-center mx-auto max-w-[550px]">
+        <div class="lg:bg-white lg:p-5 lg:rounded-lg lg:drop-shadow-xl">
+          <div class="flex items-center gap-1 mb-8 justify-center">
+            <img src="{% static 'images/foodhouse-logo.png' %}"
+                 alt="foodhouse logo"
+                 class="w-[50px] xl:w-[60px] xxl:w-[65px]"
+                 width=""
+                 height="">
+            <h1 class="text-[32px] lg:text-[36px] xl:text-[40px] xxl:text-[44px] font-logo text-white lg:text-text font-semibold pt-1">
+              Food <span>House</span>
+            </h1>
+          </div>
+          <h3 class="mt-1 font-medium text-[18px] lg:text-[20px] xl:text-[22px] xxl:text-[24px] font-text text-white lg:text-text text-center">
+            Taste a world of recipes. Register today!
+          </h3>
+          <form action=""
+                class="mt-10 flex flex-col gap-7 lg:gap-8 xl:gap-9 xxl:gap-10">
+            <div class="flex items-center border-b-2 rounded-md border-b-accent">
+              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-envelope fa-xl"></i></span>
+              <input type="email"
+                     name="email"
+                     id="email"
+                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600 placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
+                     placeholder="Email">
+            </div>
+            <div class="flex items-center border-b-2 rounded-md border-b-accent">
+              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-user fa-xl"></i></span>
+              <input type="text"
+                     name="username"
+                     id="username"
+                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
+                     placeholder="Username">
+            </div>
+            <div class="flex items-center border-b-2 rounded-md border-b-accent">
+              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-key fa-xl"></i></span>
+              <input type="password"
+                     name="password"
+                     id="password"
+                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
+                     placeholder="Password">
+            </div>
+            <div class="flex items-center border-b-2 rounded-md border-b-accent">
+              <span class="h-[44px] w-[50px] grid place-content-center  text-secondary"><i class="fa-solid fa-key fa-xl"></i></span>
+              <input type="password"
+                     name="password2"
+                     id="password2"
+                     class="focus:outline-none p-2 lg:p-3 w-full rounded-md bg-transparent transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
+                     placeholder="Confirm password">
+            </div>
+            <button type="submit"
+                    class="mt-10 w-full bg-secondary text-white font-title font-semibold py-3 rounded-md text-[18px] lg:text-[20px] xl:text-[24px]">
+              Register
+            </button>
+          </form>
+          <p class="mt-5 xl:mt-7 text-white lg:text-text text-center text-[18px] lg:text-[20px] xl:text-[22px] font-medium">
+            Already have an account? <a href="{% url 'login' %}" class="text-primary">Sign in</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock content %}

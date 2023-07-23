@@ -15,7 +15,9 @@
           <div class="flex items-center gap-1 mb-8 justify-center">
             <img src="{% static 'images/foodhouse-logo.png' %}"
                  alt="foodhouse logo"
-                 class="w-[50px] xl:w-[60px] xxl:w-[65px]">
+                 class="w-[50px] xl:w-[60px] xxl:w-[65px]"
+                 width=""
+                 height="">
             <h1 class="text-[30px] xl:text-[36px] xxl:text-[42px] font-logo text-text font-medium pt-1">
               Food <span>House</span>
             </h1>
@@ -56,7 +58,8 @@
             </button>
           </form>
           <p class="mt-10 pb-2 font-text text-gray-500 xl:text-[18px]">
-            Dont't have an account? <a href="#" class="text-accent font-medium font-title">Sign up</a>
+            Don't have an account? <a href="{% url 'register' %}"
+    class="text-accent font-medium font-title">Sign up</a>
           </p>
         </div>
       </section>
@@ -115,7 +118,8 @@
             </button>
           </form>
           <p class="text-center mt-10 pb-10 font-text text-gray-500 ">
-            Dont't have an account? <a href="#" class="text-accent font-medium font-title">Sign up</a>
+            Don't have an account? <a href="{% url 'register' %}"
+    class="text-accent font-medium font-title">Sign up</a>
           </p>
         </div>
       </div>
