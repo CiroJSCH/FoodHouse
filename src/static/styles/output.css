@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Poppins:wght@200;300;500;600;700&family=Rubik:wght@300;400;500;700&display=swap');
+
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
@@ -434,7 +436,7 @@ video {
   display: none;
 }
 
-*, ::before, ::after {
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -484,7 +486,7 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -534,11 +536,445 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.static {
+.static{
   position: static;
 }
 
-.text-red-500 {
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.left-3{
+  left: 0.75rem;
+}
+
+.top-0{
+  top: 0px;
+}
+
+.top-3{
+  top: 0.75rem;
+}
+
+.top-\[38\%\]{
+  top: 38%;
+}
+
+.z-\[2\]{
+  z-index: 2;
+}
+
+.z-\[3\]{
+  z-index: 3;
+}
+
+.z-\[5\]{
+  z-index: 5;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
+.mb-8{
+  margin-bottom: 2rem;
+}
+
+.mb-\[15px\]{
+  margin-bottom: 15px;
+}
+
+.mb-\[40px\]{
+  margin-bottom: 40px;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
+}
+
+.mt-2{
+  margin-top: 0.5rem;
+}
+
+.mt-3{
+  margin-top: 0.75rem;
+}
+
+.mt-4{
+  margin-top: 1rem;
+}
+
+.mt-7{
+  margin-top: 1.75rem;
+}
+
+.mt-\[40px\]{
+  margin-top: 40px;
+}
+
+.mt-\[60px\]{
+  margin-top: 60px;
+}
+
+.block{
+  display: block;
+}
+
+.flex{
+  display: flex;
+}
+
+.grid{
+  display: grid;
+}
+
+.hidden{
+  display: none;
+}
+
+.h-\[40\%\]{
+  height: 40%;
+}
+
+.h-\[44px\]{
+  height: 44px;
+}
+
+.h-\[62\%\]{
+  height: 62%;
+}
+
+.h-full{
+  height: 100%;
+}
+
+.h-screen{
+  height: 100vh;
+}
+
+.min-h-\[500px\]{
+  min-height: 500px;
+}
+
+.min-h-\[800px\]{
+  min-height: 800px;
+}
+
+.w-\[230px\]{
+  width: 230px;
+}
+
+.w-\[40\%\]{
+  width: 40%;
+}
+
+.w-\[50px\]{
+  width: 50px;
+}
+
+.w-\[60\%\]{
+  width: 60%;
+}
+
+.w-\[90\%\]{
+  width: 90%;
+}
+
+.w-full{
+  width: 100%;
+}
+
+.max-w-\[600px\]{
+  max-width: 600px;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.place-content-center{
+  place-content: center;
+}
+
+.items-center{
+  align-items: center;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.gap-1{
+  gap: 0.25rem;
+}
+
+.gap-3{
+  gap: 0.75rem;
+}
+
+.rounded-md{
+  border-radius: 0.375rem;
+}
+
+.rounded-l-md{
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+.rounded-r-md{
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+.rounded-t-2xl{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.border-2{
+  border-width: 2px;
+}
+
+.border-transparent{
+  border-color: transparent;
+}
+
+.bg-\[rgba\(0\2c 0\2c 0\2c 0\.60\)\]{
+  background-color: rgba(0,0,0,0.60);
+}
+
+.bg-gray-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-secondary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 84 100 / var(--tw-bg-opacity));
+}
+
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-cover{
+  background-size: cover;
+}
+
+.bg-center{
+  background-position: center;
+}
+
+.bg-no-repeat{
+  background-repeat: no-repeat;
+}
+
+.p-2{
+  padding: 0.5rem;
+}
+
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.pb-10{
+  padding-bottom: 2.5rem;
+}
+
+.pb-2{
+  padding-bottom: 0.5rem;
+}
+
+.pt-1{
+  padding-top: 0.25rem;
+}
+
+.pt-10{
+  padding-top: 2.5rem;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.font-logo{
+  font-family: Lumanosimo, cursive;
+}
+
+.font-text{
+  font-family: Poppins, sans-serif;
+}
+
+.font-title{
+  font-family: Rubik, sans-serif;
+}
+
+.text-\[18px\]{
+  font-size: 18px;
+}
+
+.text-\[22px\]{
+  font-size: 22px;
+}
+
+.text-\[27px\]{
+  font-size: 27px;
+}
+
+.text-\[30px\]{
+  font-size: 30px;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.font-medium{
+  font-weight: 500;
+}
+
+.font-semibold{
+  font-weight: 600;
+}
+
+.text-accent{
   --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
+  color: rgb(229 124 35 / var(--tw-text-opacity));
+}
+
+.text-black{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-gray-400{
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.text-gray-500{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.text-primary{
+  --tw-text-opacity: 1;
+  color: rgb(232 170 66 / var(--tw-text-opacity));
+}
+
+.text-text{
+  --tw-text-opacity: 1;
+  color: rgb(15 27 31 / var(--tw-text-opacity));
+}
+
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.transition-colors{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.focus\:border-accent:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(229 124 35 / var(--tw-border-opacity));
+}
+
+.focus\:outline-none:focus{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 1024px){
+  .lg\:flex{
+    display: flex;
+  }
+
+  .lg\:hidden{
+    display: none;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:h-\[56\.5px\]{
+    height: 56.5px;
+  }
+
+  .xl\:w-\[60px\]{
+    width: 60px;
+  }
+
+  .xl\:p-3{
+    padding: 0.75rem;
+  }
+
+  .xl\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .xl\:text-\[18px\]{
+    font-size: 18px;
+  }
+
+  .xl\:text-\[19px\]{
+    font-size: 19px;
+  }
+
+  .xl\:text-\[20px\]{
+    font-size: 20px;
+  }
+
+  .xl\:text-\[22px\]{
+    font-size: 22px;
+  }
+
+  .xl\:text-\[32px\]{
+    font-size: 32px;
+  }
+
+  .xl\:text-\[36px\]{
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1440px){
+  .xxl\:w-\[65px\]{
+    width: 65px;
+  }
+
+  .xxl\:text-\[22px\]{
+    font-size: 22px;
+  }
+
+  .xxl\:text-\[24px\]{
+    font-size: 24px;
+  }
+
+  .xxl\:text-\[36px\]{
+    font-size: 36px;
+  }
+
+  .xxl\:text-\[42px\]{
+    font-size: 42px;
+  }
 }
