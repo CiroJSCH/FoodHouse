@@ -7,32 +7,32 @@ from .models import CustomUser
 
 class UserRegisterForm(forms.Form):
 
-    input_class = "focus:outline-none p-2 lg:p-3 w-full rounded-md transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600  placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
+    input_class = "focus:outline-none p-2 lg:p-3 w-full rounded-md transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600 bg-transparent placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
 
     email = forms.EmailField(
         label="Email",
         required=True,
         widget=forms.EmailInput(attrs={
-            'class': input_class, 'placeholder': 'Email', 'style': 'background-color:transparent;', 'required': False}),
+            'class': input_class, 'placeholder': 'Email', 'required': False}),
     )
 
     username = forms.CharField(
         label="Username",
         max_length=150,
         widget=forms.TextInput(attrs={
-                               'class': input_class, 'placeholder': 'Username', 'style': 'background-color:transparent;'}),
+                               'class': input_class, 'placeholder': 'Username'}),
     )
 
     password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput(
-            attrs={'class': input_class, 'placeholder': 'Password', 'style': 'background-color:transparent;'}),
+            attrs={'class': input_class, 'placeholder': 'Password'}),
     )
 
     password2 = forms.CharField(
         label="Confirm Password",
         widget=forms.PasswordInput(
-            attrs={'class': input_class, 'placeholder': 'Confirm Password', 'style': 'background-color:transparent;'}),
+            attrs={'class': input_class, 'placeholder': 'Confirm Password'}),
     )
 
     class Meta():

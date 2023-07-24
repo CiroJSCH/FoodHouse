@@ -52,7 +52,7 @@
                      class="{{ form.email.field.widget.attrs.class }}"
                      placeholder="Email"
                      value="{{ form.email.value }}"
-                     style="{{ form.email.field.widget.attrs.style }}">
+                     >
               <span class="mt-1 text-rose-600 font-medium w-full block h-[20px] lg:text-[18px]">{{ form.email.errors }}</span>
             </div>
             <div class="mt-4 flex flex-col">
@@ -61,7 +61,12 @@
                 Password
               </label>
               <div class="flex items-center">
-                <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" class="{{ form.password.field.widget.attrs.class }}" placeholder="Password" style={{ form.password.field.widget.attrs.style }}>
+                <input type="password"
+                       name="{{ form.password.name }}"
+                       id="{{ form.password.id_for_label }}"
+                       class="{{ form.password.field.widget.attrs.class }}"
+                       placeholder="Password"
+                       >
                 <span class="bg-secondary text-accent w-[50px] h-[44px] xl:h-[52px] rounded-r-md grid place-content-center">
                   <i class="fa-regular fa-eye fa-lg"></i>
                 </span>
