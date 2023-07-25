@@ -58,3 +58,7 @@ def register(request):
     context = {"form": form}
 
     return render(request, "landing/register.html", context)
+
+
+def about(request):
+    return render(request, "landing/about.html")
