@@ -23,6 +23,9 @@ module.exports = {
         title: ['Rubik', 'sans-serif'],
         logo: ['Lumanosimo', 'cursive'],
       },
+      gridTemplateRows: {
+        12: 'repeat(12, minmax(0, 1fr))',
+      },
     },
   },
   plugins: [],
