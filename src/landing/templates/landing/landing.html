@@ -32,7 +32,7 @@
               <a href="{% url 'about' %}">About</a>
             </li>
             <li class="text-secondary">
-              <a href="#">Blog</a>
+              <a href="{% url 'blog:home' %}">Blog</a>
             </li>
             <li class="text-secondary">
               <a href="#">Contact</a>
@@ -70,7 +70,7 @@
             </li>
             <li class="mt-7 flex items-center gap-4 uppercase font-text text-[22px]">
               <i class="fa-solid fa-book-bookmark text-secondary"></i>
-              <a href="#">Blog</a>
+              <a href="{% url 'blog:home' %}">Blog</a>
             </li>
             <li class="mt-7 flex items-center gap-4 uppercase font-text text-[22px]">
               <i class="fa-regular fa-circle-question text-secondary"></i>
@@ -94,10 +94,11 @@
                width=""
                height=""
                class="w-[200px] md:w-[220px] absolute -right-3 top-2 lg:hidden">
-          <button class="text-secondary bg-white rounded-md p-3 w-[150px] xs:w-[160px] flex items-center justify-between uppercase font-medium absolute top-7 lg:hidden">
+          <a href="{% url 'blog:home' %}"
+             class="text-secondary bg-white rounded-md p-3 w-[150px] xs:w-[160px] flex items-center justify-between uppercase font-medium absolute top-7 lg:hidden">
             <p>Explore now</p>
             <i class="fa-solid fa-angle-right fa-xl"></i>
-          </button>
+          </a>
         </div>
         <div class="mt-7 lg:hidden">
           <p class="uppercase font-medium font-text text-[#F2E7D3] md:text-[18px]">Welcome to our</p>
@@ -167,7 +168,7 @@
                 <p class="text-[#F2E7D3] font-text mt-2 mb-4 leading-[27px] xl:leading-[30px] xxl:leading-[34px] max-w-[500px] lg:text-[18px] xl:text-[19px] xxl:text-[20px]">
                   Indulge in a delightful culinary adventure with our blog. Our platform is a treasure trove of mouthwatering recipes and culinary inspiration, dedicated to food enthusiasts and home cooks alike.
                 </p>
-                <a href="#"
+                <a href="{% url 'blog:home' %}"
                    class="text-accent font-semibold font-title uppercase text-[18px] xl:text-[20px] xxl:text-[21px]">Explore now</a>
               </div>
             </div>
