@@ -18,17 +18,19 @@
         Complete your profile
       </h2>
       <div class="mt-[30px] bg-primary h-[1px] w-[90%] mx-auto"></div>
-      <form action=""
-            class="mt-14 flex flex-col gap-8 items-center w-[85%] xs:w-[90%] md:w-full max-w-[500px] mx-auto">
+      <form method="post"
+            class="mt-14 flex flex-col gap-8 items-center w-[85%] xs:w-[90%] md:w-full max-w-[500px] mx-auto"
+            enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="group cursor-pointer rounded-full overflow-hidden relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] lg:w-[160px] lg:h-[160px] drop-shadow-md"
              id="profile-picture-container">
           <img id="profile-image"
                class="w-full h-full rounded-full border-2 object-contain border-accent"
-               src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+               src="{{ request.user.avatar.url }}"
                alt="profile picture"
                width=""
                height="" />
-          <input type="file" id="file-input" accept="image/*" class="hidden">
+          {{ form.avatar }}
           <div class="bg-[rgba(0,0,0,0.60)] opacity-0 group-hover:opacity-100 transition-[opacity] duration-200 grid place-content-center w-full h-full rounded-full absolute top-0 z-[5]">
             <i class="fa-solid fa-pen-to-square text-[30px] lg:text-[40px] text-white"></i>
           </div>
@@ -36,11 +38,7 @@
         <div class="w-full">
           <label for="bio"
                  class="font-medium text-text sm:text-[18px] md:text-[20px] xl:text-[22px]">Biography</label>
-          <textarea name="bio"
-                    id="bio"
-                    rows="5"
-                    class="resize-none rounded-md w-full border-2 border-accent p-2 mt-3 focus:outline-none focus:border-primary text-[18px] md:text-[20px] font-title drop-shadow-md"
-                    placeholder="Something about you..."></textarea>
+          {{ form.bio }}
         </div>
         <button type="submit"
                 class="bg-accent hover:bg-primary transition-colors duration-200 text-white font-medium rounded-md drop-shadow-md text-[18px] md:text-[19px] lg:text-[20px] p-3 w-[150px]">

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from .forms import UserRegisterForm, UserLoginForm
+from .forms import UserRegisterForm, UserLoginForm, CompleteRegisterForm
 from .models import CustomUser
 
 # Create your views here.
@@ -43,7 +43,7 @@ def register(request):
                 email=email, username=username, password=password1
             )
             login(request, user)
-            return redirect("blog:home")
+            return redirect("complete-register")
         else:
             request.session["valid_email"] = form.cleaned_data.get("email")
             request.session["valid_username"] = form.cleaned_data.get(
@@ -61,7 +61,16 @@ def register(request):
 
 
 def complete_register(request):
-    return render(request, "landing/complete_register.html")
+    user = request.user
+    form = CompleteRegisterForm(instance=user)
+    if request.method == "POST":
+        form = CompleteRegisterForm(request.POST, request.FILES, instance=user)
+        print(request.FILES)
+        if form.is_valid():
+            form.save()
+            # return redirect("blog:home")
+
+    return render(request, "landing/complete_register.html", {"form": form})
 
 
 def about(request):
