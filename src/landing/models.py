@@ -7,7 +7,8 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True, null=True)
     name = models.CharField(max_length=100, null=True, blank=True)
-    # avatar = models.ImageField(upload_to='avatars/', null=True, blank=True, default='avatars/default.png')
+    avatar = models.ImageField(
+        upload_to='avatars/', null=True, blank=True, default='default.jpg')
     bio = models.TextField(null=True, blank=True)
     recipes = models.ManyToManyField('blog.Recipe', related_name='recipes')
     favorites = models.ManyToManyField('blog.Recipe', related_name='favorites')
