@@ -1,11 +1,12 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate
 from django.core.validators import validate_email
 from .models import CustomUser
 
 
-class UserRegisterForm(forms.Form):
+class UserRegisterForm(UserCreationForm):
 
     input_class = "focus:outline-none p-2 lg:p-3 w-full rounded-md transition-colors placeholder:text-gray-300 lg:placeholder:text-gray-600 bg-transparent placeholder:font-title text-white lg:text-text font-medium lg:text-[18px] xl:text-[20px] xxl:text-[21px]"
 
@@ -92,7 +93,7 @@ class UserRegisterForm(forms.Form):
         return cleaned_data
 
 
-class UserLoginForm(forms.Form):
+class UserLoginForm(AuthenticationForm):
 
     input_class = "focus:outline-none focus:border-accent border-2 border-transparent p-2 w-full bg-gray-100 transition-colors xl:p-3 xl:text- 19px"
 
@@ -139,3 +140,27 @@ class UserLoginForm(forms.Form):
     class Meta():
         model = CustomUser
         fields = ['email', 'password']
+
+
+class CompleteRegisterForm(forms.ModelForm):
+
+    avatar = forms.ImageField(
+        label="Avatar",
+        required=False,
+        widget=forms.FileInput(attrs={
+            'class': 'hidden', 'accept': 'image/*', 'id': 'file-input'}),
+
+    )
+
+    bio = forms.CharField(
+
+        label="Bio",
+        required=False,
+        widget=forms.Textarea(attrs={
+            'class': 'resize-none rounded-md w-full border-2 border-accent p-2 mt-3 focus:outline-none focus:border-primary text-[18px] md:text-[20px] font-title drop-shadow-md', 'placeholder': 'Something about you...', 'rows': '5', 'id': 'bio'}),
+
+    )
+
+    class Meta:
+        model = CustomUser
+        fields = ('avatar', 'bio')
