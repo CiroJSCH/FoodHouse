@@ -1443,6 +1443,21 @@ video {
   background-color: rgb(232 170 66 / var(--tw-bg-opacity));
 }
 
+.hover\:text-text:hover{
+  --tw-text-opacity: 1;
+  color: rgb(15 27 31 / var(--tw-text-opacity));
+}
+
+.hover\:text-red-500:hover{
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .focus\:border-accent:focus{
   --tw-border-opacity: 1;
   border-color: rgb(229 124 35 / var(--tw-border-opacity));
