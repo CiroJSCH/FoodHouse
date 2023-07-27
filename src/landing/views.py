@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserLoginForm, CompleteRegisterForm
 from .models import CustomUser
 
@@ -60,6 +61,7 @@ def register(request):
     return render(request, "landing/register.html", context)
 
 
+@login_required(login_url='login')
 def complete_register(request):
     user = request.user
     form = CompleteRegisterForm(instance=user)
@@ -68,7 +70,7 @@ def complete_register(request):
         print(request.FILES)
         if form.is_valid():
             form.save()
-            # return redirect("blog:home")
+            return redirect("blog:home")
 
     return render(request, "landing/complete_register.html", {"form": form})
 
