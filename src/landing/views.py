@@ -60,5 +60,9 @@ def register(request):
     return render(request, "landing/register.html", context)
 
 
+def complete_register(request):
+    return render(request, "landing/complete_register.html")
+
+
 def about(request):
     return render(request, "landing/about.html")
