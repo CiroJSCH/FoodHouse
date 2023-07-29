@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Blog, Recetas de cocina" />
+    <meta name="description"
+          content="¡Bienvenido a nuestro apasionante blog de recetas de cocina comunitario! Descubre una infinita variedad de platos creados por entusiastas chefs caseros. Desde las recetas clásicas hasta innovadoras combinaciones, nuestra comunidad te invita a compartir y explorar sabores únicos. Atrévete a cocinar, compartir tus creaciones culinarias y ser parte de esta emocionante experiencia gastronómica. ¡La inspiración culinaria te espera en cada rincón de nuestro blog!" />
+    <title>FoodHouse | Blog</title>
+    <link rel="icon" href="{% static 'images/foodhouse-icon.ico' %}">
+    <link rel="stylesheet" href="{% static 'styles/output.css' %}">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  </head>
+  <body class="relative bg-background">
+    <header class="w-full border-b-2 border-b-accent drop-shadow-lg bg-slate-50 fixed top-0 z-10">
+      <nav class="p-2 md:py-3 lg:py-4 flex items-center justify-between max-w-[1440px] mx-auto">
+        {% comment %} Logo {% endcomment %}
+        <a class="flex items-center gap-1 justify-center"
+           href="{% url 'blog:home' %}">
+          <img src="{% static 'images/foodhouse-logo.png' %}"
+               alt="foodhouse logo"
+               class="w-[50px] xl:w-[60px] xxl:w-[65px]"
+               width=""
+               height="">
+          <h1 class="text-[22px] xs:text-[30px] xl:text-[36px] xxl:text-[42px] font-logo text-text font-medium pt-1">
+            Food <span>House</span>
+          </h1>
+        </a>
+        <div class="bg-primary rounded-md p-2 grid place-content-center w-[50px] h-[50px] md:hidden">
+          <i class="fa-solid fa-magnifying-glass fa-lg text-white"></i>
+        </div>
+        <form class="hidden md:flex">
+          <div class="flex rounded-md overflow-hidden">
+            <input type="text"
+                   name="search"
+                   id="search"
+                   placeholder="Search recipes..."
+                   class="!bg-white !border-2 focus:ring-0 focus:ring-transparent !border-primary  !focus:border-accent p-2 rounded-l-md lg:text-[18px] lg:p-3">
+            <button class="!bg-primary grid place-content-center p-2 lg:p-3 lg:min-w-[60px]"
+                    type="submit">
+              <i class="fa-solid fa-magnifying-glass fa-lg text-white"></i>
+            </button>
+          </div>
+        </form>
+        <section class="hidden md:flex items-center gap-3 lg:gap-4">
+          <div class="h-[35px] flex items-center gap-2">
+            <a href="#" class="flex items-center gap-2">
+              <i class="fa-solid fa-heart fa-xl text-rose-500"></i>
+              <p class="hidden lg:block font-medium font-title uppercase lg:text-[18px]">Favorites</p>
+            </a>
+            <div class="h-full w-[1px] bg-gray-300"></div>
+            <a href="#" class="flex items-center gap-2">
+              <i class="fa-solid fa-message fa-xl text-emerald-500"></i>
+              <p class="hidden lg:block font-medium font-title uppercase lg:text-[18px]">Chat</p>
+            </a>
+          </div>
+          {% comment %} Profile {% endcomment %}
+          <a class="hidden md:flex items-center gap-2" href="#">
+            <div class="rounded-full w-[70px] h-[70px] border-primary">
+              <img src="{{ request.user.avatar.url }}"
+                   alt="{{ request.user.username }} avatar"
+                   width=""
+                   height=""
+                   class="rounded-full">
+            </div>
+            <p class="hidden lg:block text-[18px] font-medium font-title">{{ request.user.username }}</p>
+          </a>
+        </section>
+      </nav>
+    </header>
+    {% block content %}
+    {% endblock content %}
+    {% comment %} Mobile Navbar {% endcomment %}
+    <section class="md:hidden fixed bottom-0 z-10 bg-slate-100 border-t-2 border-primary border-t-md w-full flex items-center justify-center">
+      <ul class="w-full max-w-[500px] mx-auto flex items-center justify-between px-2 pb-1 pt-4 font-title uppercase">
+        <li class=" border-b-4 border-b-primary w-[18%] text-primary">
+          <a href="#" class="flex flex-col gap-1 items-center">
+            <i class="fa-solid fa-house fa-lg"></i>
+            <p>Home</p>
+          </a>
+        </li>
+        <li class=" border-b-4 border-b-transparent w-[18%] text-slate-500">
+          <a href="#" class="flex flex-col gap-1 items-center">
+            <i class="fa-solid fa-message fa-lg"></i>
+            <p>Chat</p>
+          </a>
+        </li>
+        <li class="mb-2 w-[40px] xs:w-[50px] h-[40px] xs:h-[50px] rounded-full bg-accent text-white">
+          <a href="#" class="grid place-content-center h-full">
+            <i class="fa-solid fa-circle-plus fa-xl"></i>
+          </a>
+        </li>
+        <li class=" border-b-4 border-b-transparent w-[18%] text-slate-500">
+          <a href="#" class="flex flex-col gap-1 items-center">
+            <i class="fa-solid fa-heart fa-lg"></i>
+            <p>Favs</p>
+          </a>
+        </li>
+        <li class=" border-b-4 border-b-transparent w-[18%] text-slate-500">
+          <a href="#" class="flex flex-col gap-1 items-center">
+            <i class="fa-solid fa-user fa-lg"></i>
+            <p class="after:content-['me'] xs:after:content-['profile']"></p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
