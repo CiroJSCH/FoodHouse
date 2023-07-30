@@ -10,5 +10,10 @@ def home(request):
 
 
 @login_required(login_url='login')
+def profile(request):
+    return render(request, 'blog/profile.html', {})
+
+
+@login_required(login_url='login')
 def chat(request):
     return render(request, 'blog/chat.html', {})
