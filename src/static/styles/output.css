@@ -637,6 +637,14 @@ video {
   bottom: 78px;
 }
 
+.bottom-\[76px\]{
+  bottom: 76px;
+}
+
+.bottom-\[74px\]{
+  bottom: 74px;
+}
+
 .z-10{
   z-index: 10;
 }
@@ -2095,8 +2103,16 @@ video {
 }
 
 @media (min-width: 768px){
+  .md\:static{
+    position: static;
+  }
+
   .md\:bottom-0{
     bottom: 0px;
+  }
+
+  .md\:z-0{
+    z-index: 0;
   }
 
   .md\:col-span-4{

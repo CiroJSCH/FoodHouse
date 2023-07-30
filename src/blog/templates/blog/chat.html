@@ -4,7 +4,7 @@
   <main class="w-full bg-primary px-2 md:px-4 max-w-[1440px] mx-auto h-[calc(100vh-180px)] lg:h-[calc(100vh-150px)] overflow-hidden">
     <section class="w-full grid grid-cols-12 gap-4 h-full">
       {% comment %} Users {% endcomment %}
-      <section class="col-span-12 md:col-span-6 pb-[150px] lg:pb-[50px] overflow-hidden">
+      <section class="col-span-12 md:col-span-6 pb-[50px] overflow-hidden">
         <div class="text-white flex items-center gap-2 py-2">
           <i class="fa-regular fa-comments fa-xl"></i>
           <h1 class="font-title text-[24px] font-medium">Chat</h1>
@@ -196,7 +196,7 @@
       </section>
       {% comment %} Conversation {% endcomment %}
       <section id="current-conversation"
-               class="absolute lg:static z-[10] lg:z-0 right-0 top-0 hidden w-full col-span-12 lg:col-span-6 h-screen lg:h-full bg-background overflow-hidden">
+               class="absolute md:static z-[10] md:z-0 right-0 top-0 hidden w-full col-span-12 md:col-span-6 h-screen md:h-full bg-background overflow-hidden">
         <div class="w-full h-full relative pb-[150px]">
           <div class="bg-slate-200 w-full p-2 flex items-center gap-3 drop-shadow-md">
             <div class="bg-blue-500 rounded-full h-[60px] w-[60px]"></div>
@@ -238,7 +238,7 @@
               <span class="text-text text-[14px] mt-2">10:00 am</span>
             </li>
           </ul>
-          <div class="absolute bottom-[78px] md:bottom-0 h-[60px] w-full">
+          <div class="absolute bottom-[74px] md:bottom-0 h-[60px] w-full">
             <form action="" class="w-full h-full">
               <div class="w-full h-full flex items-center justify-between drop-shadow-md">
                 <input type="text"
