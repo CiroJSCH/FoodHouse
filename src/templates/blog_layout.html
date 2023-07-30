@@ -46,7 +46,7 @@
         </form>
         <section class="hidden md:flex items-center gap-3 lg:gap-4">
           <div class="h-[35px] flex items-center gap-2">
-            <a href="#" class="flex items-center gap-2">
+            <a href="{% url 'blog:favorites' %}" class="flex items-center gap-2">
               <i class="fa-solid fa-heart fa-xl text-rose-500"></i>
               <p class="hidden lg:block font-medium font-title uppercase lg:text-[18px]">Favorites</p>
             </a>
@@ -93,7 +93,8 @@
           </a>
         </li>
         <li class=" border-b-4 border-b-transparent w-[18%] text-slate-500">
-          <a href="#" class="flex flex-col gap-1 items-center">
+          <a href="{% url 'blog:favorites' %}"
+             class="flex flex-col gap-1 items-center">
             <i class="fa-solid fa-heart fa-lg"></i>
             <p>Favs</p>
           </a>
