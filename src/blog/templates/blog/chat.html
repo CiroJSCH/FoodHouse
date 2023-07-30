@@ -1,0 +1,261 @@
+{% extends "blog_layout.html" %}
+{% load static %}
+{% block content %}
+  <main class="w-full bg-primary px-2 md:px-4 max-w-[1440px] mx-auto h-[calc(100vh-180px)] lg:h-[calc(100vh-150px)] overflow-hidden">
+    <section class="w-full grid grid-cols-12 gap-4 h-full">
+      {% comment %} Users {% endcomment %}
+      <section class="col-span-12 md:col-span-6 pb-[150px] lg:pb-[50px] overflow-hidden">
+        <div class="text-white flex items-center gap-2 py-2">
+          <i class="fa-regular fa-comments fa-xl"></i>
+          <h1 class="font-title text-[24px] font-medium">Chat</h1>
+        </div>
+        <hr>
+        <form class="mt-[30px]">
+          <div class="bg-[#F2E7D3] flex items-center gap-1">
+            <span class=" w-[40px] text-text flex justify-center"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text"
+                   name="username"
+                   id="search-username"
+                   placeholder="Search by username..."
+                   class="bg-transparent border-none focus:outline-none font-text font-light  py-3">
+          </div>
+        </form>
+        {% comment %} Chat List {% endcomment %}
+        <ul class="mt-[20px] flex flex-col gap-5 h-[75%] overflow-y-scroll scrollbar-thin scrollbar-thumb-white">
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'blog:chat' %}?conversation=3"
+               class="flex items-center gap-2 relative p-2">
+              <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]"></div>
+              <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                  Nombre de la persona
+                </p>
+                <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                  Último mensaje que es bastante largo para mostrar todo
+                </p>
+              </div>
+              <div class="w-[25px] lg:w-[30px] h-[25px] lg:h-[30px] grid place-content-center rounded-full text-[11px] lg:text-[12px] font-medium bg-secondary text-white absolute right-2">
+                7
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+      {% comment %} Conversation {% endcomment %}
+      <section id="current-conversation"
+               class="absolute lg:static z-[10] lg:z-0 right-0 top-0 hidden w-full col-span-12 lg:col-span-6 h-screen lg:h-full bg-background overflow-hidden">
+        <div class="w-full h-full relative pb-[150px]">
+          <div class="bg-slate-200 w-full p-2 flex items-center gap-3 drop-shadow-md">
+            <div class="bg-blue-500 rounded-full h-[60px] w-[60px]"></div>
+            <h3 class="font-title font-medium text-[20px] text-text truncate">Nombre de la persona</h3>
+          </div>
+          <ul class="p-2 mt-5 pb-[110px] md:pb-[50px] flex flex-col gap-7 h-full overflow-y-scroll scrollbar-thin scrollbar-thumb-black">
+            {% comment %} Mensaje que ME enviaron {% endcomment %}
+            <li class="w-full flex flex-col font-text font-light">
+              <div class="p-2 bg-gray-200 rounded-md w-[90%] max-w-[450px]">
+                <p class="leading-[28px]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab optio fugit praesentium corporis eum illum maxime ad mollitia quis natus atque voluptates assumenda maiores neque at deleniti quibusdam, explicabo a.
+                </p>
+              </div>
+              <span class="text-text text-[14px] mt-2">10:00 am</span>
+            </li>
+            {% comment %} Mensaje que YO envié {% endcomment %}
+            <li class="w-full flex flex-col items-end font-text font-light">
+              <div class="p-2 bg-primary text-white rounded-md w-[90%] max-w-[450px]">
+                <p class="leading-[28px]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab optio fugit praesentium corporis eum illum maxime ad mollitia quis natus atque voluptates assumenda maiores neque at deleniti quibusdam, explicabo a.
+                </p>
+              </div>
+              <span class="text-text text-[14px] mt-2">10:00 am</span>
+            </li>
+            <li class="w-full flex flex-col font-text font-light">
+              <div class="p-2 bg-gray-200 rounded-md w-[90%] max-w-[450px]">
+                <p class="leading-[28px]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab optio fugit praesentium corporis eum illum maxime ad mollitia quis natus atque voluptates assumenda maiores neque at deleniti quibusdam, explicabo a.
+                </p>
+              </div>
+              <span class="text-text text-[14px] mt-2">10:00 am</span>
+            </li>
+            <li class="w-full flex flex-col font-text font-light">
+              <div class="p-2 bg-gray-200 rounded-md w-[90%] max-w-[450px]">
+                <p class="leading-[28px]">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab optio fugit praesentium corporis eum illum maxime ad mollitia quis natus atque voluptates assumenda maiores neque at deleniti quibusdam, explicabo a.
+                </p>
+              </div>
+              <span class="text-text text-[14px] mt-2">10:00 am</span>
+            </li>
+          </ul>
+          <div class="absolute bottom-[78px] md:bottom-0 h-[60px] w-full">
+            <form action="" class="w-full h-full">
+              <div class="w-full h-full flex items-center justify-between drop-shadow-md">
+                <input type="text"
+                       name="message"
+                       id="message"
+                       class="p-2 font-title font-light h-full w-full focus:outline-none"
+                       placeholder="Type something...">
+                <button type="submit"
+                        class="w-[70px] h-[60px] bg-accent grid place-content-center">
+                  <i class="fa-solid fa-circle-chevron-right fa-xl text-white"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="{% static 'scripts/blog/show-conversation.js' %}"></script>
+{% endblock content %}
