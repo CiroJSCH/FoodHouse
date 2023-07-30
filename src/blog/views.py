@@ -7,3 +7,8 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 def home(request):
     return render(request, 'blog/home.html', {})
+
+
+@login_required(login_url='login')
+def chat(request):
+    return render(request, 'blog/chat.html', {})
