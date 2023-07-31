@@ -1,5 +1,94 @@
 {% extends "blog_layout.html" %}
 {% load static %}
 {% block content %}
-  <h1>Este es el profile</h1>
+  <main class="w-full mb-[100px] max-w-[1440px] mx-auto relative">
+    <section class="w-full grid grid-cols-12 gap-8 lg:gap-4 xl:gap-5">
+      {% comment %} User info {% endcomment %}
+      <section class="px-2 col-span-12 lg:col-span-5 xl:col-span-4 max-w-[600px] lg:max-w-none mx-auto flex flex-col items-center justify-center">
+        <div class="bg-blue-500 w-[160px] h-[160px] border-2 border-primary rounded-full"></div>
+        <h3 class="mt-5 font-title font-medium text-[22px] lg:text-[24px] xl:text-[26px]">Nombre de la persona</h3>
+        <h4 class="mt-2 font-title font-medium text-[18px] lg:text-[19px] xl:text-[20px] text-accent">@username0001</h4>
+        <div class="mt-4 w-full">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-info fa-xl text-accent"></i>
+            <p class="font-text font-medium text-[19px] lg:text-[21px] xl:text-[23px]">About me</p>
+          </div>
+          <p class="text-[17px] lg:text-[18px] xl:text-[19px] font-text font-light mt-5 leading-[30px] lg:leading-[32px] xl:leading-[36px] text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum molestias fugiat nostrum at odio quis numquam, autem, odit, nemo culpa asperiores minus unde. At voluptate molestias quod, veniam sequi vitae?
+          </p>
+        </div>
+      </section>
+      {% comment %} User recipes {% endcomment %}
+      <section class="px-2 col-span-12 lg:col-span-7 xl:col-span-8 max-w-[600px] lg:max-w-none mx-auto flex flex-col w-full">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-utensils fa-xl text-accent"></i>
+          <p class="font-text font-medium text-[19px] lg:text-[21px] xl:text-[23px]">My recipes</p>
+        </div>
+        <div class="grid grid-cols-12 w-full mt-5">
+          <section class="w-full col-span-12 grid grid-cols-12 gap-y-8 gap-x-3 max-w-[400px] sm:max-w-[700px] md:max-w-[800px] lg:max-w-none mx-auto">
+            <article class="col-span-12 md:col-span-6 xl:col-span-4">
+              <a href="#">
+                <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
+                  <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
+                    <i class="fa-regular fa-heart fa-xl"></i>
+                  </button>
+                </div>
+                <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-clock fa-lg"></i>
+                    <p class="lg:text-[18px]">30 minutes</p>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                    <p class="lg:text-[18px]">10 likes</p>
+                  </div>
+                </div>
+                <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
+              </a>
+            </article>
+            <article class="col-span-12 md:col-span-6 xl:col-span-4">
+              <a href="#">
+                <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
+                  <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
+                    <i class="fa-regular fa-heart fa-xl"></i>
+                  </button>
+                </div>
+                <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-clock fa-lg"></i>
+                    <p class="lg:text-[18px]">30 minutes</p>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                    <p class="lg:text-[18px]">10 likes</p>
+                  </div>
+                </div>
+                <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
+              </a>
+            </article>
+            <article class="col-span-12 md:col-span-6 xl:col-span-4">
+              <a href="#">
+                <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
+                  <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
+                    <i class="fa-regular fa-heart fa-xl"></i>
+                  </button>
+                </div>
+                <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-clock fa-lg"></i>
+                    <p class="lg:text-[18px]">30 minutes</p>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                    <p class="lg:text-[18px]">10 likes</p>
+                  </div>
+                </div>
+                <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
+              </a>
+            </article>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
 {% endblock content %}
