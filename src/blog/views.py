@@ -17,3 +17,8 @@ def profile(request):
 @login_required(login_url='login')
 def chat(request):
     return render(request, 'blog/chat.html', {})
+
+
+@login_required(login_url='login')
+def create_recipe(request):
+    return render(request, 'blog/create-recipe.html', {})
