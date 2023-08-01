@@ -1,18 +1,40 @@
 from django.db import models
+from django.db.models import JSONField
 
 # Create your models here.
 
 
 class Recipe(models.Model):
+
+    DIFFICULTY_CHOICES = (
+        ('easy', 'Easy'),
+        ('normal', 'Normal'),
+        ('hard', 'Hard'),
+    )
+
+    CATEGORIES_CHOICES = (
+        ('breakfast', 'Desayuno'),
+        ('lunch', 'Almuerzo'),
+        ('snack', 'Merienda'),
+        ('dinner', 'Cena'),
+    )
+
     title = models.CharField(max_length=200)
-    description = models.TextField(max_length=200)
     body = models.TextField()
+    duration = models.IntegerField(default=0)
+    difficulty = models.CharField(
+        max_length=10, choices=DIFFICULTY_CHOICES, default='easy')
+    ingredients = JSONField(default=list, blank=True, null=True)
+    categories = models.ManyToManyField(
+        'self',
+        choices=CATEGORIES_CHOICES,
+        blank=True,
+    )
+    banner = models.ImageField(upload_to='banners/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     likes_count = models.IntegerField(default=0)
     author = models.ForeignKey('landing.CustomUser', on_delete=models.CASCADE)
-    # banner = models.ImageField(upload_to='banners/', null=True, blank=True)
-    # pictures = models.ImageField(upload_to='pictures/', null=True, blank=True)
 
     class Meta:
         ordering = ('-updated_at', '-created_at',)
