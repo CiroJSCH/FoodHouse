@@ -10,10 +10,12 @@ class CustomUser(AbstractUser):
     avatar = models.ImageField(
         upload_to='avatars/', null=True, blank=True, default='default.jpg')
     bio = models.TextField(null=True, blank=True)
-    recipes = models.ManyToManyField('blog.Recipe', related_name='recipes')
-    favorites = models.ManyToManyField('blog.Recipe', related_name='favorites')
+    recipes = models.ManyToManyField(
+        'blog.Recipe', related_name='recipes', blank=True)
+    favorites = models.ManyToManyField(
+        'blog.Recipe', related_name='favorites', blank=True)
     liked_recipes = models.ManyToManyField(
-        'blog.Recipe', related_name='liked_recipes')
+        'blog.Recipe', related_name='liked_recipes', blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

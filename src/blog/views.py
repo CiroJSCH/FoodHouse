@@ -26,9 +26,18 @@ def recipe(request, id):
 
 @login_required(login_url='login')
 def profile(request):
-    user_recipes = CustomUser.objects.get(id=request.user.id).recipes.all()
+    user_recipes = Recipe.objects.filter(author=request.user)
+    recipes_count = user_recipes.count()
+    favorites_count = user_recipes.filter(favorites=request.user).count()
+
+    likes_received = 0
+    for recipe in user_recipes:
+        likes_received += recipe.likes_count
     return render(request, 'blog/profile.html', {
         'user_recipes': user_recipes,
+        'recipes_count': recipes_count,
+        'favorites_count': favorites_count,
+        'likes_received': likes_received,
     })
 
 

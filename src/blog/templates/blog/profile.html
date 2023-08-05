@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
   <main class="w-full mb-[100px] max-w-[1440px] mx-auto relative">
-    <section class="w-full grid grid-cols-12 gap-8 lg:gap-4 xl:gap-5">
+    <section class="mt-5 w-full grid grid-cols-12 gap-8 lg:gap-4 xl:gap-5 px-2 lg:px-3">
       {% comment %} User info {% endcomment %}
       <section class="px-2 col-span-12 lg:col-span-5 xl:col-span-4 max-w-[600px] lg:max-w-none mx-auto flex flex-col items-center justify-center">
         <div class="w-[160px] h-[160px] border-2 border-primary rounded-full">
@@ -12,7 +12,13 @@
                width=""
                height="">
         </div>
-        <h3 class="mt-5 font-title font-medium text-[22px] lg:text-[24px] xl:text-[26px]">{{ request.user.name }}</h3>
+        <h3 class="mt-5 font-title font-medium text-[22px] lg:text-[24px] xl:text-[26px]">
+          {% if request.user.name %}
+            {{ request.user.name }}
+          {% else %}
+            Anonymous
+          {% endif %}
+        </h3>
         <h4 class="mt-2 font-title font-medium text-[18px] lg:text-[19px] xl:text-[20px] text-accent">
           @{{ request.user.username }}
         </h4>
@@ -35,28 +41,28 @@
               <i class="fa-solid fa-file-circle-plus text-accent fa-xl"></i>
               <span class="text-gray-500 text-[18px] lg:text-[20px]">Published Recipes</span>
             </div>
-            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">0</span>
+            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">{{ recipes_count }}</span>
           </div>
           <div class="w-full flex justify-between items-center">
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-heart text-accent fa-xl"></i>
               <span class="text-gray-500 text-[18px] lg:text-[20px]">Favorites Recipes</span>
             </div>
-            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">0</span>
+            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">{{ favorites_count }}</span>
           </div>
           <div class="w-full flex justify-between items-center">
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-thumbs-up text-accent fa-xl"></i>
               <span class="text-gray-500 text-[18px] lg:text-[20px]">Likes received</span>
             </div>
-            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">0</span>
+            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">{{ likes_received }}</span>
           </div>
           <div class="w-full flex justify-between items-center">
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-calendar text-accent fa-xl"></i>
               <span class="text-gray-500 text-[18px] lg:text-[20px]">Profile created</span>
             </div>
-            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">2y ago</span>
+            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">{{ request.user.date_joined | date:"d/m/Y" }}</span>
           </div>
         </div>
       </section>
@@ -70,24 +76,31 @@
           <section class="w-full col-span-12 grid grid-cols-12 gap-y-8 gap-x-3 max-w-[400px] sm:max-w-[700px] md:max-w-[800px] lg:max-w-none mx-auto">
             {% if user_recipes %}
               {% for recipe in user_recipes %}
-                <article class="col-span-12 md:col-span-6 xl:col-span-4">
-                  <a href="#">
-                    <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
-                      <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
-                        <i class="fa-regular fa-heart fa-xl"></i>
-                      </button>
+                <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
+                  <a href="{% url 'blog:recipe' recipe.id %}">
+                    <div class="h-[250px] lg:h-[280px] relative">
+                      <img src="{{ recipe.banner.url }}"
+                           alt="{{ recipe.title }} image"
+                           width=""
+                           height=""
+                           class="w-full h-full absolute top-0">
+                      <div class="absolute top-2 right-2 rounded-full p-2 bg-[rgba(0,0,0,0.70)] grid place-content-center hover:bg-rose-300 transition-colors">
+                        <button class="cursor-pointer text-rose-500">
+                          <i class="fa-regular fa-heart fa-xl"></i>
+                        </button>
+                      </div>
                     </div>
                     <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
                       <div class="flex items-center gap-2 text-gray-400">
                         <i class="fa-regular fa-clock fa-lg"></i>
-                        <p class="lg:text-[18px]">30 minutes</p>
+                        <p class="lg:text-[18px]">{{ recipe.duration }} minutes</p>
                       </div>
                       <div class="flex items-center gap-2 text-gray-400">
                         <i class="fa-regular fa-thumbs-up fa-lg"></i>
-                        <p class="lg:text-[18px]">10 likes</p>
+                        <p class="lg:text-[18px]">{{ recipe.likes_count }} likes</p>
                       </div>
                     </div>
-                    <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
+                    <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">{{ recipe.title }}</h4>
                   </a>
                 </article>
               {% endfor %}
