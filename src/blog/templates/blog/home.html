@@ -30,66 +30,35 @@
       </section>
       {% comment %} Recipes {% endcomment %}
       <section class="w-full col-span-12 lg:col-span-8 xl:col-span-9 grid grid-cols-12 gap-y-8 gap-x-3 max-w-[400px] sm:max-w-[700px] md:max-w-[800px] lg:max-w-none mx-auto">
-        <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
-          <a href="#">
-            <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
-              <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
-                <i class="fa-regular fa-heart fa-xl"></i>
-              </button>
-            </div>
-            <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
-              <div class="flex items-center gap-2 text-gray-400">
-                <i class="fa-regular fa-clock fa-lg"></i>
-                <p class="lg:text-[18px]">30 minutes</p>
+        {% for recipe in recipes %}
+          <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
+            <a href="{% url 'blog:recipe' recipe.id %}">
+              <div class="h-[250px] lg:h-[280px] relative">
+                <img src="{{ recipe.banner.url }}"
+                     alt="{{ recipe.title }} image"
+                     width=""
+                     height=""
+                     class="w-full h-full absolute top-0">
+                <div class="absolute top-2 right-2 rounded-full p-2 bg-[rgba(0,0,0,0.70)] grid place-content-center hover:bg-rose-300 transition-colors">
+                  <button class="cursor-pointer text-rose-500">
+                    <i class="fa-regular fa-heart fa-xl"></i>
+                  </button>
+                </div>
               </div>
-              <div class="flex items-center gap-2 text-gray-400">
-                <i class="fa-regular fa-thumbs-up fa-lg"></i>
-                <p class="lg:text-[18px]">10 likes</p>
+              <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
+                <div class="flex items-center gap-2 text-gray-400">
+                  <i class="fa-regular fa-clock fa-lg"></i>
+                  <p class="lg:text-[18px]">{{ recipe.duration }} minutes</p>
+                </div>
+                <div class="flex items-center gap-2 text-gray-400">
+                  <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                  <p class="lg:text-[18px]">{{ recipe.likes_count }} likes</p>
+                </div>
               </div>
-            </div>
-            <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
-          </a>
-        </article>
-        <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
-          <a href="#">
-            <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
-              <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
-                <i class="fa-regular fa-heart fa-xl"></i>
-              </button>
-            </div>
-            <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
-              <div class="flex items-center gap-2 text-gray-400">
-                <i class="fa-regular fa-clock fa-lg"></i>
-                <p class="lg:text-[18px]">30 minutes</p>
-              </div>
-              <div class="flex items-center gap-2 text-gray-400">
-                <i class="fa-regular fa-thumbs-up fa-lg"></i>
-                <p class="lg:text-[18px]">10 likes</p>
-              </div>
-            </div>
-            <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
-          </a>
-        </article>
-        <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
-          <a href="#">
-            <div class="bg-green-300 h-[250px] lg:h-[280px] relative">
-              <button class="absolute top-2 right-2 cursor-pointer text-rose-500">
-                <i class="fa-regular fa-heart fa-xl"></i>
-              </button>
-            </div>
-            <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
-              <div class="flex items-center gap-2 text-gray-400">
-                <i class="fa-regular fa-clock fa-lg"></i>
-                <p class="lg:text-[18px]">30 minutes</p>
-              </div>
-              <div class="flex items-center gap-2 text-gray-400">
-                <i class="fa-regular fa-thumbs-up fa-lg"></i>
-                <p class="lg:text-[18px]">10 likes</p>
-              </div>
-            </div>
-            <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">Este es el título de la receta</h4>
-          </a>
-        </article>
+              <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">{{ recipe.title }}</h4>
+            </a>
+          </article>
+        {% endfor %}
       </section>
     </section>
   </main>
