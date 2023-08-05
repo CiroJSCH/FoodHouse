@@ -30,35 +30,46 @@
       </section>
       {% comment %} Recipes {% endcomment %}
       <section class="w-full col-span-12 lg:col-span-8 xl:col-span-9 grid grid-cols-12 gap-y-8 gap-x-3 max-w-[400px] sm:max-w-[700px] md:max-w-[800px] lg:max-w-none mx-auto">
-        {% for recipe in recipes %}
-          <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
-            <a href="{% url 'blog:recipe' recipe.id %}">
-              <div class="h-[250px] lg:h-[280px] relative">
-                <img src="{{ recipe.banner.url }}"
-                     alt="{{ recipe.title }} image"
-                     width=""
-                     height=""
-                     class="w-full h-full absolute top-0">
-                <div class="absolute top-2 right-2 rounded-full p-2 bg-[rgba(0,0,0,0.70)] grid place-content-center hover:bg-rose-300 transition-colors">
-                  <button class="cursor-pointer text-rose-500">
-                    <i class="fa-regular fa-heart fa-xl"></i>
-                  </button>
+        {% if recipes %}
+          {% for recipe in recipes %}
+            <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
+              <a href="{% url 'blog:recipe' recipe.id %}">
+                <div class="h-[250px] lg:h-[280px] relative">
+                  <img src="{{ recipe.banner.url }}"
+                       alt="{{ recipe.title }} image"
+                       width=""
+                       height=""
+                       class="w-full h-full absolute top-0">
+                  <div class="absolute top-2 right-2 rounded-full p-2 bg-[rgba(0,0,0,0.70)] grid place-content-center hover:bg-rose-300 transition-colors">
+                    <button class="cursor-pointer text-rose-500">
+                      <i class="fa-regular fa-heart fa-xl"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
-                <div class="flex items-center gap-2 text-gray-400">
-                  <i class="fa-regular fa-clock fa-lg"></i>
-                  <p class="lg:text-[18px]">{{ recipe.duration }} minutes</p>
+                <div class="mt-4 flex items-center justify-between w-full max-w-[250px]">
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-clock fa-lg"></i>
+                    <p class="lg:text-[18px]">{{ recipe.duration }} minutes</p>
+                  </div>
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                    <p class="lg:text-[18px]">{{ recipe.likes_count }} likes</p>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2 text-gray-400">
-                  <i class="fa-regular fa-thumbs-up fa-lg"></i>
-                  <p class="lg:text-[18px]">{{ recipe.likes_count }} likes</p>
-                </div>
-              </div>
-              <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">{{ recipe.title }}</h4>
-            </a>
-          </article>
-        {% endfor %}
+                <h4 class="mt-2 text-[20px] font-title font-semibold lg:text-[21px] xl:text-[22px]">{{ recipe.title }}</h4>
+              </a>
+            </article>
+          {% endfor %}
+        {% else %}
+          <section class="col-span-12 mt-10 lg:mt-0 flex flex-col items-center justify-center">
+            <img src="{% static 'images/no-recipes.png' %}"
+                 alt="illustration"
+                 width=""
+                 height=""
+                 class="w-[200px] md:w-[240px] lg:w-[280px]">
+            <h3 class="font-title text-[24px] md:text-[30px] lg:text-[34px] mt-5 md:mt-7 font.medium">No recipes found</h3>
+          </section>
+        {% endif %}
       </section>
     </section>
   </main>
