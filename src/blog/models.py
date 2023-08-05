@@ -4,6 +4,13 @@ from django.db.models import JSONField
 # Create your models here.
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
 class Recipe(models.Model):
 
     DIFFICULTY_CHOICES = (
@@ -12,24 +19,13 @@ class Recipe(models.Model):
         ('hard', 'Hard'),
     )
 
-    CATEGORIES_CHOICES = (
-        ('breakfast', 'Desayuno'),
-        ('lunch', 'Almuerzo'),
-        ('snack', 'Merienda'),
-        ('dinner', 'Cena'),
-    )
-
     title = models.CharField(max_length=200)
     body = models.TextField()
     duration = models.IntegerField(default=0)
     difficulty = models.CharField(
         max_length=10, choices=DIFFICULTY_CHOICES, default='easy')
     ingredients = JSONField(default=list, blank=True, null=True)
-    categories = models.ManyToManyField(
-        'self',
-        choices=CATEGORIES_CHOICES,
-        blank=True,
-    )
+    categories = models.ManyToManyField(Category)
     banner = models.ImageField(
         upload_to='banners/', null=True, blank=True, default='default-recipe.png')
     created_at = models.DateTimeField(auto_now_add=True)
