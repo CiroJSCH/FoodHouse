@@ -11,11 +11,17 @@ def home(request):
 
     search = request.GET.get('search', '')
 
-    recipes = Recipe.objects.filter(
-        title__icontains=search) if search else Recipe.objects.all()
+    is_favorite = True if request.path == '/blog/favorites/' else False
+
+    if is_favorite:
+        recipes = Recipe.objects.filter(favorites=request.user)
+    else:
+        recipes = Recipe.objects.filter(
+            title__icontains=search) if search else Recipe.objects.all()
 
     return render(request, 'blog/home.html', {
         'recipes': recipes,
+        'is_favorite': is_favorite,
     })
 
 

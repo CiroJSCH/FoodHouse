@@ -62,12 +62,25 @@
           {% endfor %}
         {% else %}
           <section class="col-span-12 mt-10 lg:mt-0 flex flex-col items-center justify-center">
-            <img src="{% static 'images/no-recipes.png' %}"
-                 alt="illustration"
-                 width=""
-                 height=""
-                 class="w-[200px] md:w-[240px] lg:w-[280px]">
-            <h3 class="font-title text-[24px] md:text-[30px] lg:text-[34px] mt-5 md:mt-7 font.medium">No recipes found</h3>
+            {% if is_favorite %}
+              <img src="{% static 'images/no-favorites.png' %}"
+                   alt="illustration"
+                   width=""
+                   height=""
+                   class="w-[200px] md:w-[240px] lg:w-[280px]">
+              <h3 class="text-center font-title text-[24px] md:text-[30px] lg:text-[34px] mt-5 md:mt-7 font.medium">
+                You don't have any favorite recipe
+              </h3>
+            {% else %}
+              <img src="{% static 'images/no-recipes.png' %}"
+                   alt="illustration"
+                   width=""
+                   height=""
+                   class="w-[200px] md:w-[240px] lg:w-[280px]">
+              <h3 class="text-center font-title text-[24px] md:text-[30px] lg:text-[34px] mt-5 md:mt-7 font.medium">
+                No recipes found
+              </h3>
+            {% endif %}
           </section>
         {% endif %}
       </section>
