@@ -8,4 +8,5 @@ urlpatterns = [
     path('chat/', views.chat, name='chat'),
     path('profile/', views.profile, name='profile'),
     path('create-recipe/', views.create_recipe, name='create-recipe'),
+    path('recipe/<int:id>/', views.recipe, name='recipe'),
 ]

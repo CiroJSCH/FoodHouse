@@ -10,6 +10,11 @@ def home(request):
 
 
 @login_required(login_url='login')
+def recipe(request, id):
+    return render(request, 'blog/recipe.html', {})
+
+
+@login_required(login_url='login')
 def profile(request):
     return render(request, 'blog/profile.html', {})
 

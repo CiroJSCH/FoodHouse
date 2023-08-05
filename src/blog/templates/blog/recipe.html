@@ -1,0 +1,74 @@
+{% extends "blog_layout.html" %}
+{% load static %}
+{% block content %}
+  <main class="w-full mb-[100px] max-w-[1440px] mx-auto relative">
+    <div class="px-2 mt-5">
+      <h1 class="text-center font-logo font-semibold text-[32px] md:text-[38px] lg:text-[42px] xl:text-[46px]">
+        Acá va el título de la receta
+      </h1>
+      <section class="mt-5 md:mt-7 w-full max-w-[800px] mx-auto grid grid-cols-12 gap-2 gap-y-5 justify-items-center">
+        <div class="flex items-center gap-2 col-span-6 sm:col-span-4">
+          <i class="fa-regular fa-clock fa-xl text-gray-500"></i>
+          <p class="font-text font-light text-gray-500 text-[17px] md:text-[19px] lg:text-[21px]">
+            <span class="text-accent font-title font-medium">30</span> mins
+          </p>
+        </div>
+        <div class="flex items-center gap-2 col-span-6 sm:col-span-4">
+          <i class="fa-regular fa-face-smile fa-xl text-gray-500"></i>
+          <p class="font-text font-light text-gray-500 text-[17px] md:text-[19px] lg:text-[21px]">
+            <span class="text-accent font-title font-medium">Easy</span> to do
+          </p>
+        </div>
+        <div class="flex items-center gap-2 col-span-6 sm:col-span-4 col-start-4 sm:col-start-auto">
+          <i class="fa-regular fa-thumbs-up fa-xl text-gray-500"></i>
+          <p class="font-text font-light text-gray-500 text-[17px] md:text-[19px] lg:text-[21px]">
+            <span class="text-accent font-title font-medium">300</span> likes
+          </p>
+        </div>
+      </section>
+      <section class="mx-auto mt-7 grid grid-cols-12 gap-2">
+        {% comment %} Ingredients {% endcomment %}
+        <div class="bg-gray-200 col-span-12 md:col-span-7 lg:col-span-6 h-[500px]"></div>
+        {% comment %} Banner {% endcomment %}
+        <div class="bg-blue-500 col-span-12 md:col-span-5 lg:col-span-6 h-[500px] drop-shadow-md"></div>
+      </section>
+      <div class="mx-auto mt-5 md:mt-7 w-full flex flex-col">
+        <p class="font-title font-medium italic text-text lg:text-[18px]">Created by</p>
+        <div class="mt-2 flex items-center gap-2">
+          <div class="bg-blue-500 w-[70px] h-[70px] md:w-[80px] md:h-[80px] lg:w-[90px] lg:h-[90px] rounded-full"></div>
+          <a href=""
+             class="text-primary font-text font-medium text-[18px] lg:text-[20px]">Ciro Schapert</a>
+        </div>
+      </div>
+      <p class="font-title text-[22px] font-medium mt-7">Ideal to prepare in:</p>
+      <div class="w-full grid grid-cols-12 gap-2 my-5 max-w-[800px]">
+        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-emerald-300 border-2 border-emerald-600 text-emerald-600">
+          <i class="fa-solid fa-mug-saucer fa-lg"></i>
+          <span class="uppercase font-medium">Breakfast</span>
+        </div>
+        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-rose-300 border-2 border-rose-600 text-rose-600">
+          <i class="fa-solid fa-burger fa-lg"></i>
+          <span class="uppercase font-medium">Lunch</span>
+        </div>
+        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-orange-300 border-2 border-orange-600 text-orange-600">
+          <i class="fa-solid fa-bread-slice fa-lg"></i>
+          <span class="uppercase font-medium">Snack</span>
+        </div>
+        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-blue-300 border-2 border-blue-600 text-blue-600">
+          <i class="fa-solid fa-fish fa-lg"></i>
+          <span class="uppercase font-medium">Dinner</span>
+        </div>
+      </div>
+      <div class="w-full">
+        <p class="font-title text-[22px] font-medium mt-7">Description</p>
+        <p class="font-text font-light text-gray-500 text-[17px] leading-[28px] md:text-[18px] md:leading-[30px] lg:text-[19px] lg:leading-[32px]">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, sunt iure voluptatibus doloribus at veritatis molestias tempore laboriosam architecto quidem commodi repellendus laborum aliquam tempora harum voluptate quia corrupti veniam?
+          A natus, minima doloremque velit, itaque soluta voluptatem odit rerum dolorem totam cumque commodi laboriosam dolor nobis ad nulla fugit? Ab tempore recusandae magnam laboriosam, tempora voluptas repudiandae nulla aspernatur.
+          Voluptatibus, amet libero delectus commodi possimus quis expedita at debitis? Quae mollitia quaerat ex voluptatibus, sed fuga nesciunt minima dolorem assumenda consectetur corporis aspernatur neque debitis? Enim neque ducimus ipsum.
+          Illum quaerat quo unde tempora dolores, repellat non animi autem quisquam, omnis esse obcaecati expedita. Quaerat ipsa adipisci totam quod amet laboriosam deleniti magni veritatis praesentium cupiditate! Quibusdam, molestiae veniam.
+          Consequuntur veniam, aut fuga provident laudantium earum enim ipsam dolorem tempora, ut corrupti architecto fugit quia totam consequatur porro molestias placeat. Aliquam at quo error quos mollitia amet voluptatibus dignissimos!
+        </p>
+      </div>
+    </div>
+  </main>
+{% endblock content %}
