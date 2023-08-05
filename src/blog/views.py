@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from landing.models import CustomUser
 
 # Create your views here.
 
@@ -16,7 +17,10 @@ def recipe(request, id):
 
 @login_required(login_url='login')
 def profile(request):
-    return render(request, 'blog/profile.html', {})
+    user_recipes = CustomUser.objects.get(id=request.user.id).recipes.all()
+    return render(request, 'blog/profile.html', {
+        'user_recipes': user_recipes,
+    })
 
 
 @login_required(login_url='login')

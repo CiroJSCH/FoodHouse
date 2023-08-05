@@ -30,7 +30,8 @@ class Recipe(models.Model):
         choices=CATEGORIES_CHOICES,
         blank=True,
     )
-    banner = models.ImageField(upload_to='banners/', null=True, blank=True)
+    banner = models.ImageField(
+        upload_to='banners/', null=True, blank=True, default='default-recipe.png')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     likes_count = models.IntegerField(default=0)
