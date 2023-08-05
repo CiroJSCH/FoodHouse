@@ -9,7 +9,10 @@ from .models import Recipe
 @login_required(login_url='login')
 def home(request):
 
-    recipes = Recipe.objects.all()
+    search = request.GET.get('search', '')
+
+    recipes = Recipe.objects.filter(
+        title__icontains=search) if search else Recipe.objects.all()
 
     return render(request, 'blog/home.html', {
         'recipes': recipes,
