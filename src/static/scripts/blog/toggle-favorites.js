@@ -9,7 +9,14 @@ const updateFavoritesButtons = (favorites) => {
   favButton.forEach((recipe) => {
     const recipeId = parseInt(recipe.getAttribute('data-recipe'));
     if (favorites.includes(recipeId)) {
-      recipe.classList.replace('bg-[rgba(0,0,0,0.70)]', 'bg-rose-200');
+      if (
+        window.location.pathname === '/blog/favorites/' ||
+        window.location.pathname === '/blog/'
+      ) {
+        recipe.classList.replace('bg-[rgba(0,0,0,0.70)]', 'bg-rose-200');
+      } else {
+        recipe.classList.replace('bg-transparent', 'bg-rose-200');
+      }
       recipe.removeEventListener('click', addToFavorites);
       recipe.addEventListener('click', async () => {
         const response = await deleteFromFavorites(recipeId);
@@ -28,7 +35,14 @@ const updateFavoritesButtons = (favorites) => {
         }
       });
     } else {
-      recipe.classList.replace('bg-rose-200', 'bg-[rgba(0,0,0,0.70)]');
+      if (
+        window.location.pathname === '/blog/favorites/' ||
+        window.location.pathname === '/blog/'
+      ) {
+        recipe.classList.replace('bg-rose-200', 'bg-[rgba(0,0,0,0.70)]');
+      } else {
+        recipe.classList.replace('bg-rose-200', 'bg-transparent');
+      }
       recipe.removeEventListener('click', deleteFromFavorites);
       recipe.addEventListener('click', async () => {
         const response = await addToFavorites(recipeId);

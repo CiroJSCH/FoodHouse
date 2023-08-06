@@ -31,8 +31,15 @@
         <div class="bg-gray-200 col-span-12 md:col-span-7 lg:col-span-6 h-[500px]"></div>
         {% comment %} Banner {% endcomment %}
         <div class="bg-blue-500 col-span-12 md:col-span-5 lg:col-span-6 h-[500px] drop-shadow-md relative">
+          <img src="{{ recipe.banner.url }}"
+               alt="{{ recipe.title }} banner"
+               width=""
+               height=""
+               class="h-full w-full">
           <div class="absolute -bottom-14 right-0 flex items-center gap-2 font-title">
-            <button class="drop-shadow-sm rounded-full border-2 md:px-4 border-rose-600 text-rose-600 hover:bg-rose-300 transition-colors flex items-center justify-center gap-1 p-2">
+            <button id="toggle-favorites"
+                    data-recipe="{{ recipe.id }}"
+                    class="drop-shadow-sm rounded-full border-2 md:px-4 bg-transparent border-rose-600 text-rose-600 hover:bg-rose-300 transition-colors flex items-center justify-center gap-1 p-2">
               <i class="fa-regular fa-heart fa-xl"></i>
               <p class="hidden md:block">Favorites</p>
             </button>
@@ -88,4 +95,5 @@
       </div>
     </div>
   </main>
+  <script src="{% static 'scripts/blog/toggle-favorites.js' %}"></script>
 {% endblock content %}
