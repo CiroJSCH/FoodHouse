@@ -40,6 +40,12 @@ const filterRecipes = () => {
           ? recipe.classList.remove('hidden')
           : recipe.classList.add('hidden');
       });
+
+      const noRecipes = document.querySelector('#no-recipes');
+      const recipes = document.querySelectorAll('.recipe-card:not(.hidden)');
+      recipes.length === 0
+        ? noRecipes.classList.replace('hidden', 'flex')
+        : noRecipes.classList.replace('flex', 'hidden');
     });
   });
 };
