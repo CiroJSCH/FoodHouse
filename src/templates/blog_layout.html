@@ -15,7 +15,7 @@
   </head>
   <body class="relative bg-background pt-[80px] md:pt-[110px] lg:pt-[120px] xl:pt-[130px] ">
     <header class="w-full border-b-2 border-b-accent drop-shadow-lg bg-slate-50 fixed top-0 z-10">
-      <nav class="p-2 md:py-3 lg:py-4 flex items-center justify-between max-w-[1440px] mx-auto">
+      <nav class="p-2 md:py-3 lg:py-4 flex items-center justify-between max-w-[1440px] mx-auto relative">
         {% comment %} Logo {% endcomment %}
         <a class="flex items-center gap-1 justify-center"
            href="{% url 'blog:home' %}">
@@ -28,9 +28,18 @@
             Food <span>House</span>
           </h1>
         </a>
-        <div class="bg-primary rounded-md p-2 grid place-content-center w-[50px] h-[50px] md:hidden">
-          <i class="fa-solid fa-magnifying-glass fa-lg text-white"></i>
-        </div>
+        {% comment %} Mobile Searchbar {% endcomment %}
+        <form method="get"
+              class="w-full flex items-center justify-end absolute right-0 px-2">
+          <input type="text"
+                 class="w-0 !p-0 h-[50px] rounded-r-md !border-primary focus:!border-accent !ring-0 !border-0 absolute left-0 transition-[width] duration-200 ml-2"
+                 name="search"
+                 id="mobile-searchbar">
+          <div class="!bg-primary rounded-md p-2 grid place-content-center w-[50px] h-[50px] md:hidden"
+               id="active-search">
+            <i class="fa-solid fa-magnifying-glass fa-lg text-white"></i>
+          </div>
+        </form>
         <form class="hidden md:flex" method="get" action="{% url 'blog:home' %}">
           <div class="flex rounded-md overflow-hidden">
             <input type="text"
@@ -147,5 +156,6 @@
     <script src="{% static 'scripts/blog/set-background.js' %}"></script>
     <script src="{% static 'scripts/blog/profile-popup.js' %}"></script>
     <script src="{% static 'scripts/blog/mobileNavbar.js' %}"></script>
+    <script src="{% static 'scripts/blog/mobileSearchbar.js' %}"></script>
   </body>
 </html>
