@@ -55,7 +55,6 @@ def home(request):
 @login_required(login_url='login')
 def recipe(request, id):
     recipe = Recipe.objects.get(id=id)
-    print(recipe.author.username)
     return render(request, 'blog/recipe.html', {
         'recipe': recipe,
     })
