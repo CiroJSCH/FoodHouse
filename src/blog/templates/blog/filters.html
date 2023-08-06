@@ -2,74 +2,78 @@
   Check multiple boxes below to narrow recipe search results:
 </p>
 <div class="mt-7 flex flex-col gap-10">
-  {% comment %} By Meal Filter {% endcomment %}
-  <div>
-    <h4 class="font-title text-[20px] font-medium">By Meal:</h4>
-    <form action=""
-          class="mt-3 flex flex-col gap-2 xs:text-[18px] text-gray-400 font-text font-light">
+  <form method="get"
+        id="filters-form"
+        class="mt-3 flex flex-col gap-2 xs:text-[18px] text-gray-400 font-text font-light">
+    <section class="flex flex-col gap-3">
+      <h4 class="font-title text-[20px] font-medium text-text">By Meal:</h4>
       <div>
         <input type="checkbox"
                name="breakfast"
                id="breakfast"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="breakfast">Breakfast (10)</label>
+               data-category="breakfast"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="breakfast">Breakfast ({{ recipes_count.Breakfast }})</label>
       </div>
       <div>
         <input type="checkbox"
                name="lunch"
                id="lunch"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="lunch">Lunch (10)</label>
+               data-category="lunch"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="lunch">Lunch ({{ recipes_count.Lunch }})</label>
       </div>
       <div>
         <input type="checkbox"
                name="snack"
                id="snack"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="snack">Snack (10)</label>
+               data-category="snack"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="snack">Snack ({{ recipes_count.Snack }})</label>
       </div>
       <div>
         <input type="checkbox"
                name="dinner"
                id="dinner"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="dinner">Dinner (10)</label>
+               data-category="dinner"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="dinner">Dinner ({{ recipes_count.Dinner }})</label>
       </div>
-    </form>
-  </div>
-  {% comment %} By Duration Filter {% endcomment %}
-  <div>
-    <h4 class="font-title text-[20px] font-medium">By Duration:</h4>
-    <form action=""
-          class="mt-3 flex flex-col gap-2 xs:text-[18px] text-gray-400 font-text font-light">
+    </section>
+    <section class="mt-5 flex flex-col gap-3">
+      <h4 class="font-title text-[20px] font-medium text-text">By Duration:</h4>
       <div>
         <input type="checkbox"
-               name="l15"
-               id="l15"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="l15">Less than 15min (10)</label>
-      </div>
-      <div>
-        <input type="checkbox"
-               name="l30"
-               id="l30"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="l30">Less than 30min (10)</label>
+               name="L15"
+               id="L15"
+               data-duration="15"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="L15">Less than 15min ({{ duration_count.15 }})</label>
       </div>
       <div>
         <input type="checkbox"
-               name="l30"
-               id="l45"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="l45">Less than 45min (10)</label>
+               name="L30"
+               id="L30"
+               data-duration="30"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="L30">Less than 30min ({{ duration_count.30 }})</label>
       </div>
       <div>
         <input type="checkbox"
-               name="l60"
-               id="l60"
-               class="bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
-        <label for="l60">Less than 60min (10)</label>
+               name="L45"
+               id="L45"
+               data-duration="45"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="L45">Less than 45min ({{ duration_count.45 }})</label>
       </div>
-    </form>
-  </div>
+      <div>
+        <input type="checkbox"
+               name="L60"
+               id="L60"
+               data-duration="60"
+               class="filter-cbx bg-transparent hover:bg-gray-100 cursor-pointer w-5 h-5 border-2 border-primary focus:outline-none checked:bg-orange-400 checked:hover:bg-orange-400 checked:focus:bg-orange-400 focus:ring-0">
+        <label for="L60">Less than 60min ({{ duration_count.60 }})</label>
+      </div>
+    </section>
+  </form>
 </div>

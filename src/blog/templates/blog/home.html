@@ -32,7 +32,9 @@
       <section class="w-full col-span-12 lg:col-span-8 xl:col-span-9 grid grid-cols-12 gap-y-8 gap-x-3 max-w-[400px] sm:max-w-[700px] md:max-w-[800px] lg:max-w-none mx-auto">
         {% if recipes %}
           {% for recipe in recipes %}
-            <article class="col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4">
+            <article class="recipe-card col-span-12 sm:col-span-6 lg:col-span-6 xl:col-span-4"
+                     data-categories="{{ recipe.categories.all|join:", " }}"
+                     data-duration="{{ recipe.duration }}">
               <a href="{% url 'blog:recipe' recipe.id %}">
                 <div class="h-[250px] lg:h-[280px] relative">
                   <img src="{{ recipe.banner.url }}"
@@ -88,12 +90,13 @@
   </main>
   {% comment %} Filters mobile {% endcomment %}
   <section id="mobile-filters"
-           class="h-screen lg:hidden absolute top-0 left-0 z-20 w-[80%] xs:w-[70%] max-w-[270px] bg-gray-50 border-r-2 border-r-accent drop-shadow-lg -translate-x-full transition-transform duration-200 ease-in-out">
+           class="pb-5 overflow-y-scroll h-screen lg:hidden absolute top-0 left-0 z-20 w-[80%] xs:w-[70%] max-w-[270px] bg-gray-50 border-r-2 border-r-accent drop-shadow-lg -translate-x-full transition-transform duration-200 ease-in-out">
     <div class="w-[90%] h-auto flex flex-col gap-6 pt-7 justify-around mx-auto relative">
       <div class="bg-white p-2 text-accent border-2 border-accent text-center uppercase font-medium mb-[30px]">Filters</div>
       <div>{% include "blog/filters.html" %}</div>
     </div>
   </section>
   <script src="{% static 'scripts/blog/toggle-filters.js' %}"></script>
+  <script src="{% static 'scripts/blog/filters.js' %}"></script>
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 {% endblock content %}
