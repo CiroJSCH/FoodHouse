@@ -59,12 +59,12 @@
           {% comment %} Profile {% endcomment %}
           <div class="hidden md:flex items-center gap-2 cursor-pointer"
                id="profile-container">
-            <div class="rounded-full w-[70px] h-[70px] border-primary">
+            <div class="rounded-full w-[70px] h-[70px] border-primary border-2">
               <img src="{{ request.user.avatar.url }}"
                    alt="{{ request.user.username }} avatar"
                    width=""
                    height=""
-                   class="rounded-full">
+                   class="rounded-full h-full w-full bg-contain">
             </div>
             <p class="hidden lg:block text-[18px] font-medium font-title">{{ request.user.username }}</p>
           </div>
