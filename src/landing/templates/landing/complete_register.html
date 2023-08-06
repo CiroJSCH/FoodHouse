@@ -15,7 +15,11 @@
         </h1>
       </div>
       <h2 class="mt-[45px] text-center font-text text-[20px] md:text-[22px] lg:text-[24px] font-medium text-text">
-        Complete your profile
+        {% if is_editing %}
+          Edit your profile
+        {% else %}
+          Complete your profile
+        {% endif %}
       </h2>
       <div class="mt-[30px] bg-primary h-[1px] w-[90%] mx-auto"></div>
       <form method="post"
