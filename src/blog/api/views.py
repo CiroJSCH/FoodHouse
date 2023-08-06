@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from blog.models import Recipe
 
 
 @api_view(['GET'])
@@ -51,6 +52,11 @@ def like(request):
         user = request.user
         recipe_id = request.data.get('recipe_id')
         user.liked_recipes.add(recipe_id)
+
+        recipe = Recipe.objects.get(id=recipe_id)
+        recipe.likes_count += 1
+        recipe.save()
+
         return Response({'status': 'success'})
     except Exception as e:
         return Response({'status': 'error', 'message': str(e)})
@@ -62,6 +68,12 @@ def unlike(request):
         user = request.user
         recipe_id = request.data.get('recipe_id')
         user.liked_recipes.remove(recipe_id)
+
+        recipe = Recipe.objects.get(id=recipe_id)
+        if recipe.likes_count > 0:
+            recipe.likes_count -= 1
+        recipe.save()
+
         return Response({'status': 'success'})
     except Exception as e:
         return Response({'status': 'error', 'message': str(e)})
