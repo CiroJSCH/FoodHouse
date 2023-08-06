@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from landing.models import CustomUser
-from .models import Recipe
+from .models import Recipe, Category
 
 # Create your views here.
 
@@ -15,13 +15,40 @@ def home(request):
 
     if is_favorite:
         recipes = Recipe.objects.filter(favorites=request.user)
+
     else:
         recipes = Recipe.objects.filter(
             title__icontains=search) if search else Recipe.objects.all()
 
+    recipes_count = {
+        "Breakfast": 0,
+        "Lunch": 0,
+        "Snack": 0,
+        "Dinner": 0,
+    }
+
+    for category_name in recipes_count.keys():
+        category = Category.objects.filter(name=category_name).first()
+        if category:
+            recipes_count[category_name] = Recipe.objects.filter(
+                categories=category).count()
+
+    duration_count = {
+        "15": 0,
+        "30": 0,
+        "45": 0,
+        "60": 0,
+    }
+
+    for duration in duration_count.keys():
+        duration_count[duration] = Recipe.objects.filter(
+            duration__lte=int(duration)).count()
+
     return render(request, 'blog/home.html', {
         'recipes': recipes,
         'is_favorite': is_favorite,
+        'recipes_count': recipes_count,
+        'duration_count': duration_count,
     })
 
 
