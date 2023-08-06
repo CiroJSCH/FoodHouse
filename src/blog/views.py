@@ -55,8 +55,19 @@ def home(request):
 @login_required(login_url='login')
 def recipe(request, id):
     recipe = Recipe.objects.get(id=id)
+    categories = {
+        "Breakfast": False,
+        "Lunch": False,
+        "Snack": False,
+        "Dinner": False,
+    }
+
+    for category in recipe.categories.all():
+        categories[category.name] = True
+
     return render(request, 'blog/recipe.html', {
         'recipe': recipe,
+        'categories': categories,
     })
 
 

@@ -74,22 +74,30 @@
       </div>
       <p class="font-title text-[22px] font-medium mt-7">Ideal to prepare in:</p>
       <div class="w-full grid grid-cols-12 gap-2 my-5 max-w-[800px]">
-        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-emerald-300 border-2 border-emerald-600 text-emerald-600">
-          <i class="fa-solid fa-mug-saucer fa-lg"></i>
-          <span class="uppercase font-medium">Breakfast</span>
-        </div>
-        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-rose-300 border-2 border-rose-600 text-rose-600">
-          <i class="fa-solid fa-burger fa-lg"></i>
-          <span class="uppercase font-medium">Lunch</span>
-        </div>
-        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-orange-300 border-2 border-orange-600 text-orange-600">
-          <i class="fa-solid fa-bread-slice fa-lg"></i>
-          <span class="uppercase font-medium">Snack</span>
-        </div>
-        <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-blue-300 border-2 border-blue-600 text-blue-600">
-          <i class="fa-solid fa-fish fa-lg"></i>
-          <span class="uppercase font-medium">Dinner</span>
-        </div>
+        {% if categories.Breakfast %}
+          <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-emerald-300 border-2 border-emerald-600 text-emerald-600">
+            <i class="fa-solid fa-mug-saucer fa-lg"></i>
+            <span class="uppercase font-medium">Breakfast</span>
+          </div>
+        {% endif %}
+        {% if categories.Lunch %}
+          <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-rose-300 border-2 border-rose-600 text-rose-600">
+            <i class="fa-solid fa-burger fa-lg"></i>
+            <span class="uppercase font-medium">Lunch</span>
+          </div>
+        {% endif %}
+        {% if categories.Snack %}
+          <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-orange-300 border-2 border-orange-600 text-orange-600">
+            <i class="fa-solid fa-bread-slice fa-lg"></i>
+            <span class="uppercase font-medium">Snack</span>
+          </div>
+        {% endif %}
+        {% if categories.Dinner %}
+          <div class="col-span-6 md:col-span-3 flex items-center justify-center gap-2 rounded-md px-2 py-1 bg-blue-300 border-2 border-blue-600 text-blue-600">
+            <i class="fa-solid fa-fish fa-lg"></i>
+            <span class="uppercase font-medium">Dinner</span>
+          </div>
+        {% endif %}
       </div>
       <div class="w-full">
         <p class="font-title text-[22px] font-medium mt-7">Description</p>
