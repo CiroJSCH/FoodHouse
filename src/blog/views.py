@@ -72,8 +72,11 @@ def recipe(request, id):
 
 
 @login_required(login_url='login')
-def profile(request):
-    user_recipes = Recipe.objects.filter(author=request.user)
+def profile(request, id=None):
+
+    user = request.user if not id else CustomUser.objects.get(id=id)
+    user_recipes = Recipe.objects.filter(author=user)
+
     recipes_count = user_recipes.count()
     favorites_count = user_recipes.filter(favorites=request.user).count()
 
@@ -81,6 +84,7 @@ def profile(request):
     for recipe in user_recipes:
         likes_received += recipe.likes_count
     return render(request, 'blog/profile.html', {
+        'user': user,
         'user_recipes': user_recipes,
         'recipes_count': recipes_count,
         'favorites_count': favorites_count,

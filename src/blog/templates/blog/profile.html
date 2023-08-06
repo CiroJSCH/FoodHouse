@@ -6,32 +6,30 @@
       {% comment %} User info {% endcomment %}
       <section class="px-2 col-span-12 lg:col-span-5 xl:col-span-4 max-w-[600px] lg:max-w-none mx-auto flex flex-col items-center justify-center">
         <div class="w-[160px] h-[160px] border-2 border-primary rounded-full">
-          <img src="{{ request.user.avatar.url }}"
+          <img src="{{ user.avatar.url }}"
                alt=""
                class="w-full h-ful rounded-full"
                width=""
                height="">
         </div>
         <h3 class="mt-5 font-title font-medium text-[22px] lg:text-[24px] xl:text-[26px]">
-          {% if request.user.name %}
-            {{ request.user.name }}
-          {% else %}
-            Anonymous
-          {% endif %}
+          {{ user.name|default:"Anonymous" }}
         </h3>
-        <h4 class="mt-2 font-title font-medium text-[18px] lg:text-[19px] xl:text-[20px] text-accent">
-          @{{ request.user.username }}
-        </h4>
+        <h4 class="mt-2 font-title font-medium text-[18px] lg:text-[19px] xl:text-[20px] text-accent">@{{ user.username }}</h4>
         <div class="mt-4 w-full">
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-circle-info fa-xl text-accent"></i>
             <p class="font-text font-medium text-[19px] lg:text-[21px] xl:text-[23px]">About me</p>
           </div>
           <p class="text-[17px] lg:text-[18px] xl:text-[19px] font-text font-light mt-5 leading-[30px] lg:leading-[32px] xl:leading-[36px] text-justify">
-            {% if request.user.description %}
-              {{ request.user.description }}
+            {% if user.description %}
+              {{ user.description }}
             {% else %}
-              This user has not written anything about himself yet.
+              {% if user == request.user %}
+                You have not written anything about yourself yet.
+              {% else %}
+                This user has not written anything about himself yet.
+              {% endif %}
             {% endif %}
           </p>
         </div>
@@ -62,15 +60,36 @@
               <i class="fa-solid fa-calendar text-accent fa-xl"></i>
               <span class="text-gray-500 text-[18px] lg:text-[20px]">Profile created</span>
             </div>
-            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">{{ request.user.date_joined | date:"d/m/Y" }}</span>
+            <span class="text-accent text-[20px] lg:text-[22px] font-semibold font-logo">{{ user.date_joined | date:"d/m/Y" }}</span>
           </div>
+        </div>
+        <div class="mt-7 lg:w-full">
+          {% if user == request.user %}
+            <a href="#"
+               class="lg:w-[150px] flex items-center gap-2 bg-primary hover:bg-accent text-white font-semibold text-[18px] transition-colors drop-shadow-md px-2 py-3">
+              <i class="fa-solid fa-user-pen fa-lg"></i>
+              <span>Edit profile</span>
+            </a>
+          {% else %}
+            <a href="#"
+               class="lg:w-[170px] flex items-center gap-2 bg-primary hover:bg-accent text-white font-semibold text-[18px] transition-colors drop-shadow-md px-2 py-3">
+              <i class="fa-regular fa-comments fa-lg"></i>
+              <span>Send Message</span>
+            </a>
+          {% endif %}
         </div>
       </section>
       {% comment %} User recipes {% endcomment %}
       <section class="px-2 col-span-12 lg:col-span-7 xl:col-span-8 max-w-[600px] lg:max-w-none mx-auto flex flex-col w-full items-center lg:items-start">
         <div class="flex items-center gap-2">
           <i class="fa-solid fa-utensils fa-xl text-accent"></i>
-          <p class="font-text font-medium text-[19px] lg:text-[21px] xl:text-[23px]">My recipes</p>
+          <p class="font-text font-medium text-[19px] lg:text-[21px] xl:text-[23px]">
+            {% if user == request.user %}
+              My recipes
+            {% else %}
+              {{ user.username }} recipes
+            {% endif %}
+          </p>
         </div>
         <section class="mt-5 md:mt-7 w-full col-span-12 grid grid-cols-12 gap-y-8 gap-x-3 max-w-[400px] sm:max-w-[700px] md:max-w-[800px] lg:max-w-none mx-auto">
           {% if user_recipes %}
@@ -111,14 +130,22 @@
             <section class="col-span-12 flex flex-col items-center justify-center gap-4">
               <i class="fa-regular fa-folder-open fa-2xl text-text"></i>
               <h3 class="text-[24px] font-semibold">There is nothing to show</h3>
-              <p class="text-[20px] text-gray-400">You do not have any recipe created. Let's fix that</p>
-              <a href="{% url 'blog:create-recipe' %}"
-                 class="bg-primary hover:bg-accent transition-colors text-white py-2 font-medium w-[150px] text-[20px] text-center drop-shadow-md rounded-md">Create Recipe</a>
+              <p class="text-[20px] text-gray-400">
+                {% if user == request.user %}
+                  You have not created any recipe yet.
+                {% else %}
+                  This user has not created any recipe yet.
+                {% endif %}
+              </p>
+              {% if user == request.user %}
+                <a href="{% url 'blog:create-recipe' %}"
+                   class="bg-primary hover:bg-accent transition-colors text-white py-2 font-medium w-[150px] text-[20px] text-center drop-shadow-md rounded-md">Create Recipe</a>
+              {% endif %}
             </section>
           {% endif %}
         </section>
       </section>
     </section>
   </main>
-  <script src="{% static 'scripts/blog/toggle-favorites.js' %}"></script>
+  <script src="{% static 'scripts/blog/toggle-favorites.js' %}" type="module"></script>
 {% endblock content %}
