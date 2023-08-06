@@ -13,6 +13,8 @@ def home(request):
 
     is_favorite = True if request.path == '/blog/favorites/' else False
 
+    print(is_favorite)
+
     if is_favorite:
         recipes = Recipe.objects.filter(favorites=request.user)
 
