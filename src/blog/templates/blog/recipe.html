@@ -22,7 +22,7 @@
         <div class="flex items-center gap-2 col-span-6 sm:col-span-4 col-start-4 sm:col-start-auto">
           <i class="fa-regular fa-thumbs-up fa-xl text-gray-500"></i>
           <p class="font-text font-light text-gray-500 text-[17px] md:text-[19px] lg:text-[21px]">
-            <span class="text-accent font-title font-medium">{{ recipe.likes_count }}</span> likes
+            <span id="like-count" class="text-accent font-title font-medium">{{ recipe.likes_count }}</span> likes
           </p>
         </div>
       </section>
@@ -43,7 +43,8 @@
               <i class="fa-regular fa-heart fa-xl"></i>
               <p class="hidden md:block">Favorites</p>
             </button>
-            <button class="drop-shadow-sm rounded-full border-2 md:px-4 border-emerald-600 text-emerald-600 hover:bg-emerald-300 transition-colors flex items-center justify-center gap-1 p-2">
+            <button id="toggle-like" data-recipe="{{ recipe.id }}"
+                    class="drop-shadow-sm rounded-full border-2 bg-transparent md:px-4 border-emerald-600 text-emerald-600 hover:bg-emerald-300 transition-colors flex items-center justify-center gap-1 p-2">
               <i class="fa-regular fa-thumbs-up fa-xl"></i>
               <p class="hidden md:block">Like</p>
             </button>
@@ -95,5 +96,6 @@
       </div>
     </div>
   </main>
-  <script src="{% static 'scripts/blog/toggle-favorites.js' %}"></script>
+  <script src="{% static 'scripts/blog/toggle-favorites.js' %}" type="module"></script>
+  <script src="{% static 'scripts/blog/toggle-likes.js' %}" type="module"></script>
 {% endblock content %}
