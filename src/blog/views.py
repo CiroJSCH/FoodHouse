@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from landing.forms import CompleteRegisterForm
 from landing.models import CustomUser
 from .models import Recipe, Category
 
@@ -89,6 +90,22 @@ def profile(request, id=None):
         'recipes_count': recipes_count,
         'favorites_count': favorites_count,
         'likes_received': likes_received,
+    })
+
+
+@login_required(login_url='login')
+def edit_profile(request):
+    user = request.user
+    if request.method == "POST":
+        form = CompleteRegisterForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:profile')
+    else:
+        form = CompleteRegisterForm(instance=user)
+    return render(request, 'landing/complete_register.html', {
+        'form': form,
+        "is_editing": True,
     })
 
 
