@@ -32,3 +32,36 @@ def delete_favorite(request):
         return Response({'status': 'success'})
     except Exception as e:
         return Response({'status': 'error', 'message': str(e)})
+
+
+@api_view(['GET'])
+def liked_recipes(request):
+    try:
+        user = request.user
+        likes_id = [recipe.id for recipe in user.liked_recipes.all()]
+        total = len(likes_id)
+        return Response({'status': 'success', 'liked_recipes': likes_id, 'total': total})
+    except Exception as e:
+        return Response({'status': 'error', 'message': str(e)})
+
+
+@api_view(['POST'])
+def like(request):
+    try:
+        user = request.user
+        recipe_id = request.data.get('recipe_id')
+        user.liked_recipes.add(recipe_id)
+        return Response({'status': 'success'})
+    except Exception as e:
+        return Response({'status': 'error', 'message': str(e)})
+
+
+@api_view(['POST'])
+def unlike(request):
+    try:
+        user = request.user
+        recipe_id = request.data.get('recipe_id')
+        user.liked_recipes.remove(recipe_id)
+        return Response({'status': 'success'})
+    except Exception as e:
+        return Response({'status': 'error', 'message': str(e)})
