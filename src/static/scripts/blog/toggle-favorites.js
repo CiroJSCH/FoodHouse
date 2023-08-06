@@ -1,3 +1,5 @@
+import csrfToken from './getCsrfToken.js';
+
 const getUserFavorites = async () => {
   const data = await fetch('http://127.0.0.1:8000/blog/api/favorites/');
   const dataJson = await data.json();
@@ -55,13 +57,6 @@ const updateFavoritesButtons = (favorites) => {
 };
 
 const userFavorites = getUserFavorites().then(updateFavoritesButtons);
-
-const getCookie = (name) => {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-};
-const csrfToken = getCookie('csrftoken');
 
 const addToFavorites = async (recipeId) => {
   const add = await fetch('http://127.0.0.1:8000/blog/api/add-favorites/', {
