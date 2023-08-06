@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 app_name = 'blog'
@@ -9,4 +9,6 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('create-recipe/', views.create_recipe, name='create-recipe'),
     path('recipe/<int:id>/', views.recipe, name='recipe'),
+
+    path('api/', include('blog.api.urls'))
 ]
