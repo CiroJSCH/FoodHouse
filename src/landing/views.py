@@ -67,7 +67,6 @@ def complete_register(request):
     form = CompleteRegisterForm(instance=user)
     if request.method == "POST":
         form = CompleteRegisterForm(request.POST, request.FILES, instance=user)
-        print(request.FILES)
         if form.is_valid():
             form.save()
             return redirect("blog:home")
