@@ -92,13 +92,15 @@
     {% comment %} Mobile Navbar {% endcomment %}
     <section class="md:hidden fixed bottom-0 z-10 bg-slate-100 border-t-2 border-primary border-t-md w-full flex items-center justify-center">
       <ul class="w-full max-w-[500px] mx-auto flex items-center justify-between px-2 pb-1 pt-4 font-title uppercase">
-        <li class=" border-b-4 border-b-primary w-[18%] text-primary">
-          <a href="#" class="flex flex-col gap-1 items-center">
+        <li class="border-b-4 border-b-transparent w-[18%] text-slate-500"
+            id="home-link">
+          <a href="{% url 'blog:home' %}" class="flex flex-col gap-1 items-center">
             <i class="fa-solid fa-house fa-lg"></i>
             <p>Home</p>
           </a>
         </li>
-        <li class=" border-b-4 border-b-transparent w-[18%] text-slate-500">
+        <li class="border-b-4 border-b-transparent w-[18%] text-slate-500"
+            id="chat-link">
           <a href="{% url 'blog:chat' %}" class="flex flex-col gap-1 items-center">
             <i class="fa-solid fa-message fa-lg"></i>
             <p>Chat</p>
@@ -110,19 +112,20 @@
             <i class="fa-solid fa-circle-plus fa-xl"></i>
           </a>
         </li>
-        <li class=" border-b-4 border-b-transparent w-[18%] text-slate-500">
+        <li class="border-b-4 border-b-transparent w-[18%] text-slate-500"
+            id="favorites-link">
           <a href="{% url 'blog:favorites' %}"
              class="flex flex-col gap-1 items-center">
             <i class="fa-solid fa-heart fa-lg"></i>
             <p>Favs</p>
           </a>
         </li>
-        <li class="border-b-4 border-b-transparent w-[18%] text-slate-500"
+        <li class="profile-link border-b-4 border-b-transparent w-[18%] text-slate-500"
             id="profile-container">
-          <a href="#" class="flex flex-col gap-1 items-center">
+          <div class="flex flex-col gap-1 items-center">
             <i class="fa-solid fa-user fa-lg"></i>
             <p class="after:content-['me'] xs:after:content-['profile']"></p>
-          </a>
+          </div>
         </li>
       </ul>
       <div id="options-container"
@@ -143,5 +146,6 @@
     </section>
     <script src="{% static 'scripts/blog/set-background.js' %}"></script>
     <script src="{% static 'scripts/blog/profile-popup.js' %}"></script>
+    <script src="{% static 'scripts/blog/mobileNavbar.js' %}"></script>
   </body>
 </html>
