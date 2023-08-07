@@ -11,7 +11,7 @@
         Unleash Your Culinary Imagination
       </p>
     </div>
-    <form class="w-full">
+    <form class="w-full" enctype="multipart/form-data">
       <section class="grid grid-cols-12 gap-3 xl:gap-5 xxl:gap-7 relative">
         {% comment %} Basic Information {% endcomment %}
         <section class="col-span-12 md:col-span-6">
@@ -21,10 +21,22 @@
           </div>
           <section class="flex flex-col gap-5">
             <div>
-              <label for=""
+              <label for="banner"
                      class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Recipe banner</label>
               <p class="text-gray-400 font-light font-text mb-3 lg:text-[17px]">Choose a striking image of your recipe</p>
-              <div class="bg-blue-500 w-full h-[450px] rounded-md"></div>
+              <div class="group cursor-pointer overflow-hidden relative w-full h-[450px] drop-shadow-md"
+                   id="recipe-picture-container">
+                <img id="recipe-image"
+                     class="w-full h-full object-contain"
+                     src="{% static 'images/default-recipe.png' %}"
+                     alt="recipe picture"
+                     width=""
+                     height="" />
+                <input type="file" name="banner" id="file-input" class="hidden">
+                <div class="bg-[rgba(0,0,0,0.60)] opacity-0 group-hover:opacity-100 transition-[opacity] duration-200 grid place-content-center w-full h-full absolute top-0 z-[5]">
+                  <i class="fa-solid fa-pen-to-square text-[30px] lg:text-[40px] text-white"></i>
+                </div>
+              </div>
             </div>
             <div class="flex flex-col gap-2 w-full">
               <label for="title"
@@ -144,4 +156,5 @@
       </section>
     </form>
   </main>
+  <script src="{% static 'scripts/blog/bannerPicture.js' %}"></script>
 {% endblock content %}
