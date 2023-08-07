@@ -8,4 +8,5 @@ urlpatterns = [
     path('liked-recipes/', views.liked_recipes),
     path('like/', views.like),
     path('unlike/', views.unlike),
+    path('delete-recipe/', views.delete_recipe),
 ]

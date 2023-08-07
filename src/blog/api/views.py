@@ -77,3 +77,18 @@ def unlike(request):
         return Response({'status': 'success'})
     except Exception as e:
         return Response({'status': 'error', 'message': str(e)})
+
+
+@api_view(['DELETE'])
+def delete_recipe(request):
+    try:
+        user = request.user
+        recipe_id = request.data.get('recipe_id')
+        recipe = Recipe.objects.get(id=recipe_id)
+        if recipe.author == user:
+            # recipe.delete()
+            return Response({'status': 'success'})
+        else:
+            return Response({'status': 'error', 'message': 'You are not the author of this recipe'})
+    except Exception as e:
+        return Response({'status': 'error', 'message': str(e)})
