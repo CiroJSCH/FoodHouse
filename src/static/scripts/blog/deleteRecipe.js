@@ -7,12 +7,12 @@ const confirmDeleteButton = document.getElementById('confirm-delete');
 
 deleteRecipe.addEventListener('click', () => {
   document.body.classList.toggle('overflow-hidden');
-  confirmModal.classList.toggle('hidden');
+  confirmModal.classList.replace('hidden', 'flex');
 });
 
 closeModalButton.addEventListener('click', () => {
   document.body.classList.toggle('overflow-hidden');
-  confirmModal.classList.toggle('hidden');
+  confirmModal.classList.replace('flex', 'hidden');
 });
 
 confirmDeleteButton.addEventListener('click', async () => {
