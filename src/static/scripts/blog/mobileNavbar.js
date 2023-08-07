@@ -13,7 +13,6 @@ if (window.location.pathname === '/blog/') {
   chatLink.classList.replace('text-slate-500', 'text-primary');
   chatLink.classList.replace('border-b-transparent', 'border-b-primary');
 } else {
-  console.log(profileLink);
   profileLink.classList.replace('text-slate-500', 'text-primary');
   profileLink.classList.replace('border-b-transparent', 'border-b-primary');
 }
