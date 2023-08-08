@@ -32,7 +32,7 @@
                      alt="recipe picture"
                      width=""
                      height="" />
-                <input type="file" name="banner" id="file-input" class="hidden">
+                {{ form.banner }}
                 <div class="bg-[rgba(0,0,0,0.60)] opacity-0 group-hover:opacity-100 transition-[opacity] duration-200 grid place-content-center w-full h-full absolute top-0 z-[5]">
                   <i class="fa-solid fa-pen-to-square text-[30px] lg:text-[40px] text-white"></i>
                 </div>
@@ -41,19 +41,12 @@
             <div class="flex flex-col gap-2 w-full">
               <label for="title"
                      class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Title</label>
-              <input type="text"
-                     name="title"
-                     id="title"
-                     class="w-full focus:outline-none border-2 border-primary p-2 drop-shadow-md font-text"
-                     placeholder="e.g: Burgers with fries">
+              {{ form.title }}
             </div>
             <div class="flex flex-col gap-2 w-full">
               <label for="description"
                      class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Description</label>
-              <textarea name="description"
-                        id="description"
-                        class="w-full focus:outline-none border-2 border-primary p-2 drop-shadow-md font-text resize-none"
-                        rows="5"></textarea>
+              {{ form.description }}
             </div>
           </section>
         </section>
@@ -91,26 +84,9 @@
               <p class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Categories</p>
               <p class="text-gray-400 font-light font-text mb-3 lg:text-[17px]">Choose the meals for which this recipe applies</p>
               <section class="w-full grid grid-cols-12 gap-2">
-                <div class="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-3">
-                  <input type="checkbox" name="breakfast" id="breakfast">
-                  <label for="breakfast"
-                         class="text-text font-text text-[17px] lg:text-[18px] ml-2">Breakfast</label>
-                </div>
-                <div class="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-3">
-                  <input type="checkbox" name="lunch" id="lunch">
-                  <label for="lunch"
-                         class="text-text font-text text-[17px] lg:text-[18px] ml-2">Lunch</label>
-                </div>
-                <div class="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-3">
-                  <input type="checkbox" name="snack" id="snack">
-                  <label for="snack"
-                         class="text-text font-text text-[17px] lg:text-[18px] ml-2">Snack</label>
-                </div>
-                <div class="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-3">
-                  <input type="checkbox" name="dinner" id="dinner">
-                  <label for="dinner"
-                         class="text-text font-text text-[17px] lg:text-[18px] ml-2">Dinner</label>
-                </div>
+                {% for checkbox in form.categories %}
+                  <div class="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-3">{{ checkbox }}</div>
+                {% endfor %}
               </section>
             </div>
             <div>
@@ -141,7 +117,7 @@
             </div>
           </section>
           <div class="mt-12 w-auto flex items-center gap-4">
-            <a href=""
+            <a href="{% url 'blog:home' %}"
                class=" bg-rose-400 hover:bg-rose-500 transition-colors py-2 px-3 font-title font-medium uppercase text-[20px]">
               <i class="fa-solid fa-x fa-xl"></i>
               Cancel
@@ -154,6 +130,7 @@
           </div>
         </section>
       </section>
+      {{ form.ingredients }}
     </form>
   </main>
   <script src="{% static 'scripts/blog/bannerPicture.js' %}"></script>

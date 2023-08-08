@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from landing.forms import CompleteRegisterForm
 from landing.models import CustomUser
 from .models import Recipe, Category
+from .forms import CreateRecipeForm
 
 # Create your views here.
 
@@ -110,10 +111,13 @@ def edit_profile(request):
 
 
 @login_required(login_url='login')
-def chat(request):
-    return render(request, 'blog/chat.html', {})
+def create_recipe(request):
+    form = CreateRecipeForm()
+    return render(request, 'blog/create-recipe.html', {
+        'form': form,
+    })
 
 
 @login_required(login_url='login')
-def create_recipe(request):
-    return render(request, 'blog/create-recipe.html', {})
+def chat(request):
+    return render(request, 'blog/chat.html', {})

@@ -19,6 +19,13 @@ class Recipe(models.Model):
         ('hard', 'Hard'),
     )
 
+    CATEGORY_CHOICES = (
+        ('Breakfast', 'Breakfast'),
+        ('Lunch', 'Lunch'),
+        ('Snack', 'Snack'),
+        ('Dinner', 'Dinner'),
+    )
+
     title = models.CharField(max_length=200)
     body = models.TextField()
     duration = models.IntegerField(default=0)
