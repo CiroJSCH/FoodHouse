@@ -54,6 +54,6 @@ class CreateRecipeForm(forms.Form):
     ingredients = forms.CharField(
         required=True,
         widget=forms.Textarea(attrs={
-            'class': 'w-0 p-0 border-0',
+            'class': 'h-0 w-0 p-0 border-0',
         })
     )
