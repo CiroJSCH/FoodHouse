@@ -86,7 +86,7 @@ def delete_recipe(request):
         recipe_id = request.data.get('recipe_id')
         recipe = Recipe.objects.get(id=recipe_id)
         if recipe.author == user:
-            # recipe.delete()
+            recipe.delete()
             return Response({'status': 'success'})
         else:
             return Response({'status': 'error', 'message': 'You are not the author of this recipe'})
