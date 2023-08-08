@@ -4,6 +4,7 @@ from landing.forms import CompleteRegisterForm
 from landing.models import CustomUser
 from .models import Recipe, Category
 from .forms import CreateRecipeForm
+import json
 
 # Create your views here.
 
@@ -67,9 +68,12 @@ def recipe(request, id):
     for category in recipe.categories.all():
         categories[category.name] = True
 
+    ingredients = json.loads(recipe.ingredients)["ingredients"]
+
     return render(request, 'blog/recipe.html', {
         'recipe': recipe,
         'categories': categories,
+        'ingredients': ingredients,
     })
 
 
