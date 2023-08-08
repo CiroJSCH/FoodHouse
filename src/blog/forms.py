@@ -2,7 +2,7 @@ from django import forms
 from .models import Recipe
 
 
-class CreateRecipeForm(forms.Form):
+class CreateRecipeForm(forms.ModelForm):
     banner = forms.ImageField(
         required=False,
         widget=forms.FileInput(attrs={
@@ -18,11 +18,11 @@ class CreateRecipeForm(forms.Form):
         })
     )
 
-    description = forms.CharField(
+    body = forms.CharField(
         required=True,
         widget=forms.Textarea(attrs={
             'class': 'w-full focus:outline-none border-2 border-primary p-2 drop-shadow-md font-text resize-none',
-            'id': 'description',
+            'id': 'body',
             'rows': 5,
         })
     )
@@ -57,3 +57,8 @@ class CreateRecipeForm(forms.Form):
             'class': 'h-0 w-0 p-0 border-0',
         })
     )
+
+    class Meta:
+        model = Recipe
+        fields = '__all__'
+        exclude = ['author', 'likes_count', 'created_at', 'updated_at']
