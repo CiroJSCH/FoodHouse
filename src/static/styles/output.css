@@ -2474,6 +2474,10 @@ video {
     margin-top: 1.75rem;
   }
 
+  .md\:mb-\[70px\]{
+    margin-bottom: 70px;
+  }
+
   .md\:block{
     display: block;
   }
@@ -2738,6 +2742,10 @@ video {
 
   .lg\:mt-\[60px\]{
     margin-top: 60px;
+  }
+
+  .lg\:mb-\[70px\]{
+    margin-bottom: 70px;
   }
 
   .lg\:block{

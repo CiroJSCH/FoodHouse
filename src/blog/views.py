@@ -112,7 +112,24 @@ def edit_profile(request):
 
 @login_required(login_url='login')
 def create_recipe(request):
+    if request.method == "POST":
+        print(request.POST)
+        form = CreateRecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+
+            recipe.save()
+
+            category_names = request.POST.getlist('categories')
+            categories = Category.objects.filter(name__in=category_names)
+            recipe.categories.set(categories)
+
+            return redirect('blog:recipe', id=recipe.id)
+        else:
+            print(form.errors)
     form = CreateRecipeForm()
+
     return render(request, 'blog/create-recipe.html', {
         'form': form,
     })

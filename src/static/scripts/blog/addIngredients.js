@@ -39,10 +39,7 @@ const removeIngredient = (e) => {
   ingredients.splice(ingredientIndex, 1);
   e.target.parentNode.remove();
 
-  djangoIngredients.value = `
-    {
-      "ingredients": ${JSON.stringify(ingredients)}
-    }
+  djangoIngredients.value = `{"ingredients": ${JSON.stringify(ingredients)}}
   `;
 
   console.log(ingredients);
