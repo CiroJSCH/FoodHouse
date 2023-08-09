@@ -52,11 +52,11 @@ class Conversation(models.Model):
         'landing.CustomUser', on_delete=models.CASCADE, related_name='conversations_as_participant1')
     participant2 = models.ForeignKey(
         'landing.CustomUser', on_delete=models.CASCADE, related_name='conversations_as_participant2')
+    messages = models.ManyToManyField(
+        'Message', blank=True)
 
 
 class Message(models.Model):
-    conversation = models.ForeignKey(
-        Conversation, on_delete=models.CASCADE, related_name='messages')
     sender = models.ForeignKey('landing.CustomUser', on_delete=models.CASCADE)
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
