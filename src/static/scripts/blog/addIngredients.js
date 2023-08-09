@@ -6,9 +6,6 @@ const djangoIngredients = document.getElementById('id_ingredients');
 
 const ingredients = [];
 
-JSON.parse(djangoIngredients.value).ingredients.length > 0 &&
-  ingredients.push(...JSON.parse(djangoIngredients.value).ingredients);
-
 const createIngredient = (name) => {
   const ingredientItem = `
     <li class="w-full flex items-center justify-between" id="ingredient-${
@@ -51,6 +48,10 @@ addButton.addEventListener('click', () => {
   addIngredientsField.value = '';
 });
 
-ingredients.forEach((ingredient) => {
-  createIngredient(ingredient);
-});
+if (djangoIngredients.value) {
+  const djangoIngredientsValue = JSON.parse(djangoIngredients.value);
+
+  djangoIngredientsValue.ingredients.forEach((ingredient) => {
+    createIngredient(ingredient);
+  });
+}
