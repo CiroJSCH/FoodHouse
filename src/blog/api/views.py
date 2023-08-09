@@ -35,12 +35,13 @@ def delete_favorite(request):
         return Response({'status': 'error', 'message': str(e)})
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def liked_recipes(request):
     try:
         user = request.user
+        recipe_id = request.data.get('recipe_id')
         likes_id = [recipe.id for recipe in user.liked_recipes.all()]
-        total = len(likes_id)
+        total = Recipe.objects.get(id=recipe_id).likes_count
         return Response({'status': 'success', 'liked_recipes': likes_id, 'total': total})
     except Exception as e:
         return Response({'status': 'error', 'message': str(e)})
@@ -72,6 +73,7 @@ def unlike(request):
         recipe = Recipe.objects.get(id=recipe_id)
         if recipe.likes_count > 0:
             recipe.likes_count -= 1
+
         recipe.save()
 
         return Response({'status': 'success'})
