@@ -29,11 +29,7 @@
                    id="recipe-picture-container">
                 <img id="recipe-image"
                      class="w-full h-full object-contain"
-                     src="{% if edit %}
-                     {{ recipe_banner }}
-                     {% else %}
-                     {% static 'images/default-recipe.png' %}
-                     {% endif %}"
+                     src="{% if edit %} {{ recipe_banner }} {% else %} {% static 'images/default-recipe.png' %} {% endif %}"
                      alt="recipe picture"
                      width=""
                      height="" />
@@ -47,11 +43,13 @@
               <label for="title"
                      class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Title</label>
               {{ form.title }}
+              <span class="text-rose-500 mt-1 font-medium">{{ form.title.errors }}</span>
             </div>
             <div class="flex flex-col gap-2 w-full">
               <label for="body"
                      class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Description</label>
               {{ form.body }}
+              <span class="text-rose-500 mt-1 font-medium">{{ form.body.errors }}</span>
             </div>
           </section>
         </section>
@@ -68,18 +66,13 @@
                        class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Duration</label>
                 <p class="text-gray-400 font-light font-text mb-3 lg:text-[17px]">In minutes of this recipe</p>
                 {{ form.duration }}
+                <span class="text-rose-500 mt-1 font-medium">{{ form.duration.errors }}</span>
               </div>
               <div class="col-span-12 lg:col-span-6">
                 <label for="difficulty"
                        class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Difficulty</label>
                 <p class="text-gray-400 font-light font-text mb-3 lg:text-[17px]">How hard do you think it is?</p>
-                <select name="difficulty"
-                        id="difficulty"
-                        class="w-full focus:outline-none border-2 border-primary p-2 drop-shadow-md font-text h-[43px]">
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>
+                {{ form.difficulty }}
               </div>
             </div>
             <div class="w-full">
@@ -90,6 +83,7 @@
                   <div class="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-3">{{ checkbox }}</div>
                 {% endfor %}
               </section>
+              <span class="text-rose-500 mt-1 font-medium">{{ form.categories.errors }}</span>
             </div>
             <div>
               <div class="col-span-12 lg:col-span-6">
