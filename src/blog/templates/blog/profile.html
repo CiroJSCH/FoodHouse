@@ -71,11 +71,10 @@
               <span>Edit profile</span>
             </a>
           {% else %}
-            <a href="#"
-               class="lg:w-[170px] flex items-center justify-center gap-2 bg-primary hover:bg-accent text-white font-semibold text-[18px] transition-colors drop-shadow-md px-2 py-3">
+            <button id="send-message" data-participant={{ user.id }} class="lg:w-[170px] flex items-center justify-center gap-2 bg-primary hover:bg-accent text-white font-semibold text-[18px] transition-colors drop-shadow-md px-2 py-3">
               <i class="fa-regular fa-comments fa-lg"></i>
               <span>Send Message</span>
-            </a>
+            </button>
           {% endif %}
         </div>
       </section>
@@ -148,4 +147,5 @@
     </section>
   </main>
   <script src="{% static 'scripts/blog/toggle-favorites.js' %}" type="module"></script>
+  <script src="{% static 'scripts/blog/conversation.js' %}" type="module"></script>
 {% endblock content %}

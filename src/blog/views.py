@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from landing.forms import CompleteRegisterForm
 from landing.models import CustomUser
-from .models import Recipe, Category
+from .models import Recipe, Category, Conversation
 from .forms import CreateRecipeForm
 import json
 
@@ -169,4 +169,17 @@ def edit_recipe(request, id):
 
 @login_required(login_url='login')
 def chat(request):
-    return render(request, 'blog/chat.html', {})
+
+    conversations = Conversation.objects.filter(participant1=request.user) | Conversation.objects.filter(
+        participant2=request.user
+    )
+
+    active_conversation = request.GET.get('conversation')
+    conversation = None
+    if active_conversation:
+        conversation = Conversation.objects.get(id=active_conversation)
+
+    return render(request, 'blog/chat.html', {
+        "conversations": conversations,
+        "active_conversation": conversation,
+    })
