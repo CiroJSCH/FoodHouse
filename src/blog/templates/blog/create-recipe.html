@@ -29,7 +29,11 @@
                    id="recipe-picture-container">
                 <img id="recipe-image"
                      class="w-full h-full object-contain"
-                     src="{% static 'images/default-recipe.png' %}"
+                     src="{% if edit %}
+                     {{ recipe_banner }}
+                     {% else %}
+                     {% static 'images/default-recipe.png' %}
+                     {% endif %}"
                      alt="recipe picture"
                      width=""
                      height="" />
@@ -63,10 +67,7 @@
                 <label for="duration"
                        class="text-text font-title text-[17px] lg:text-[18px] mb-2 font-medium">Duration</label>
                 <p class="text-gray-400 font-light font-text mb-3 lg:text-[17px]">In minutes of this recipe</p>
-                <input type="number"
-                       name="duration"
-                       id="duration"
-                       class="w-full focus:outline-none border-2 border-primary p-2 drop-shadow-md font-text">
+                {{ form.duration }}
               </div>
               <div class="col-span-12 lg:col-span-6">
                 <label for="difficulty"

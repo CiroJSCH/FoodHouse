@@ -121,7 +121,7 @@
         <div class="w-full">
           <p class="font-title text-[22px] font-medium mt-7">Options</p>
           <div class="mt-3 flex items-center gap-2">
-            <a href="#"
+            <a href="{% url 'blog:edit-recipe' recipe.id %}"
                class="bg-primary hover:bg-accent transition-colors text-white font-text font-medium px-3 py-2 flex items-center gap-2 md:text-[18px] lg:text-[22px] drop-shadow-md">
               <i class="fa-solid fa-pen fa-lg"></i>
               <span class="xs:after:content-['\00a0Recipe']">Edit</span>

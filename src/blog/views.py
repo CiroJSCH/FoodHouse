@@ -139,6 +139,34 @@ def create_recipe(request):
     })
 
 
+def edit_recipe(request, id):
+
+    recipe = Recipe.objects.get(id=id)
+    recipe_banner = recipe.banner.url
+    form = CreateRecipeForm(instance=recipe)
+
+    if request.method == "POST":
+        form = CreateRecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+
+            recipe.save()
+
+            category_names = request.POST.getlist('categories')
+            categories = Category.objects.filter(name__in=category_names)
+            recipe.categories.set(categories)
+
+            return redirect('blog:recipe', id=recipe.id)
+        else:
+            print(form.errors)
+
+    return render(request, 'blog/create-recipe.html', {
+        'form': form,
+        'recipe_banner': recipe_banner,
+        'edit': True
+    })
+
+
 @login_required(login_url='login')
 def chat(request):
     return render(request, 'blog/chat.html', {})

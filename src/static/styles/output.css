@@ -931,6 +931,10 @@ video {
   height: 75%;
 }
 
+.h-\[80\%\]{
+  height: 80%;
+}
+
 .h-\[calc\(100\%-70px\)\]{
   height: calc(100% - 70px);
 }
@@ -949,18 +953,6 @@ video {
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[80\%\]{
-  height: 80%;
-}
-
-.max-h-\[70\%\]{
-  max-height: 70%;
-}
-
-.max-h-\[80\%\]{
-  max-height: 80%;
 }
 
 .min-h-\[16px\]{
@@ -2120,12 +2112,12 @@ video {
   --scrollbar-thumb: #000 !important;
 }
 
-.scrollbar-thumb-white{
-  --scrollbar-thumb: #fff !important;
-}
-
 .scrollbar-thumb-primary{
   --scrollbar-thumb: #E8AA42 !important;
+}
+
+.scrollbar-thumb-white{
+  --scrollbar-thumb: #fff !important;
 }
 
 .placeholder\:font-title::-moz-placeholder{
