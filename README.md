@@ -72,6 +72,6 @@ Para el desarrollo, se utilizó:
 - SQLite3
 
 ## Enlace al proyecto
-En el siguiente video, se muestras las funcionalidades del sitio en mayor detalle.
+En el siguiente video, se muestran las funcionalidades del sitio en mayor detalle.
 
 [Video de presentación de FoodHouse](https://drive.google.com/file/d/1ktc0i1pPYWHrW5HgEhQ3z2UEc2DLkXi1/view?usp=sharing)
