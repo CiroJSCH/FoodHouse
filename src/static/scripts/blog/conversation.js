@@ -2,7 +2,7 @@ import csrfToken from './getCsrfToken.js';
 
 const sendMessageBtn = document.getElementById('send-message');
 
-sendMessageBtn.addEventListener('click', () => {
+sendMessageBtn?.addEventListener('click', () => {
   const participantId = parseInt(sendMessageBtn.dataset.participant);
   startConversation(participantId);
 });
@@ -20,4 +20,8 @@ const startConversation = async (participantId) => {
       body: JSON.stringify({ participant_id: participantId }),
     }
   );
+  const data = await response.json();
+  if (data.status === 'success') {
+    window.location.href = `/blog/chat/?conversation=${data.conversation_id}`;
+  }
 };

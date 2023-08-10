@@ -22,40 +22,50 @@
         </form>
         {% comment %} Chat List {% endcomment %}
         <ul class="mt-[20px] flex flex-col gap-5 h-[75%] overflow-y-scroll scrollbar-thin scrollbar-thumb-white">
-          {% for conversation in conversations %}
-            <li>
-              <a href="{% url 'blog:chat' %}?conversation={{ conversation.id }}"
-                 class="flex items-center gap-2 relative p-2">
-                <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]">
-                  {% if conversation.participant1 == request.user %}
-                    <img src="{{ conversation.participant2.avatar.url }}"
-                         alt="chat"
-                         width=""
-                         height=""
-                         class="w-full h-full rounded-full bg-contain">
-                  {% else %}
-                    <img src="{{ conversation.participant1.avatar.url }}"
-                         alt="chat"
-                         width=""
-                         height=""
-                         class="w-full h-full rounded-full bg-contain">
-                  {% endif %}
-                </div>
-                <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
-                  <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
-                    {% if conversation.participant1 != request.user %}
-                      {{ conversation.participant1.name }}
-                    {% else %}
-                      {{ conversation.participant2.name }}
-                    {% endif %}
-                  </p>
-                  <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
-                    {{ conversation.messages.last.message|truncatechars:30 }}
-                  </p>
-                </div>
-              </a>
+          {% if not conversations %}
+            <li class="mt-4 text-center w-full flex flex-col items-center justify-center">
+              <i class="fa-solid fa-comment-slash fa-2xl"></i>
+              <h3 class="mt-4 font-title font-semibold text-[23px] md:text-[26px] lg:text-[30px]">
+                You don't have any conversation
+              </h3>
+              <p class="mt-3 font-text text-white text-[18px] md:text-[20px] lg:text-[22px]">Visit a user's profile and start one</p>
             </li>
-          {% endfor %}
+          {% else %}
+            {% for conversation in conversations %}
+              <li>
+                <a href="{% url 'blog:chat' %}?conversation={{ conversation.id }}"
+                   class="flex items-center gap-2 relative p-2">
+                  <div class="bg-blue-400 rounded-full w-[50px] lg:w-[60px] h-[50px] lg:h-[60px]">
+                    {% if conversation.participant1 == request.user %}
+                      <img src="{{ conversation.participant2.avatar.url }}"
+                           alt="chat"
+                           width=""
+                           height=""
+                           class="w-full h-full rounded-full bg-contain">
+                    {% else %}
+                      <img src="{{ conversation.participant1.avatar.url }}"
+                           alt="chat"
+                           width=""
+                           height=""
+                           class="w-full h-full rounded-full bg-contain">
+                    {% endif %}
+                  </div>
+                  <div class="flex flex-col gap-1 max-w-[170px] xs:max-w-[240px] sm:max-w-[400px] md:max-w-[250px] lg:max-w-[370px] xl:max-w-[480px] xxl:max-w-[510px]">
+                    <p class="font-title font-bold text-[17px] lg:text-[19px] text-white text-ellipsis overflow-hidden whitespace-nowrap">
+                      {% if conversation.participant1 != request.user %}
+                        {{ conversation.participant1.name }}
+                      {% else %}
+                        {{ conversation.participant2.name }}
+                      {% endif %}
+                    </p>
+                    <p class="font-text font-light text-[15px] lg:text-[17px] text-[#F2E7D3] text-ellipsis overflow-hidden whitespace-nowrap">
+                      {{ conversation.messages.last.message|truncatechars:30 }}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          {% endif %}
         </ul>
       </section>
       {% comment %} Conversation {% endcomment %}

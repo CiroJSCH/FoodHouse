@@ -53,7 +53,7 @@ const getMessages = async () => {
 
   const tempFragment = document.createDocumentFragment();
 
-  data.messages.forEach((message) => {
+  data.messages?.forEach((message) => {
     if (message.sender === currentUser) {
       const myMessage = `
         <li class="w-full flex flex-col items-end font-text font-light">

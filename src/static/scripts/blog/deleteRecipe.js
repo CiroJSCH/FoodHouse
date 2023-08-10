@@ -5,7 +5,7 @@ const confirmModal = document.getElementById('confirm-modal');
 const closeModalButton = document.querySelector('.close-modal');
 const confirmDeleteButton = document.getElementById('confirm-delete');
 
-deleteRecipe.addEventListener('click', () => {
+deleteRecipe?.addEventListener('click', () => {
   document.body.classList.toggle('overflow-hidden');
   confirmModal.classList.replace('hidden', 'flex');
 });
